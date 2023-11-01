@@ -9,5 +9,9 @@ layout: default
 	{%- for post in site.posts limit: 5 -%}
 		{%- include postlist.html post=post -%}
 	{%- endfor -%}
+	{%- assign postcount = site.posts | size -%}
+	{%- if postcount == 0 -%}
+		<p>등록된 포스트가 없습니다.</p>
+	{%- endif -%}
 	<a href="{{ "/posts/" | relative_url }}" class="btn btn-primary">더보기 &rarr;</a>
 </article>

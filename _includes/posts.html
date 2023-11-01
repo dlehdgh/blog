@@ -1,0 +1,14 @@
+{%- assign page = 1 -%}
+{%- assign count = 1 -%}
+{%- for post in include.posts -%}
+	{%- if count == 1 -%}
+		<div class="post-group" data-page="{{ page }}">
+	{%- endif -%}
+	{%- include postlist.html post=post -%}
+	{%- if count == site.paginate -%}
+		</div>
+		{%- assign count = 0 -%}
+		{%- assign page = page | plus: 1 -%}
+	{%- endif -%}
+	{%- assign count = count | plus: 1 -%}
+{%- endfor -%}

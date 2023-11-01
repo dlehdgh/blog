@@ -1,0 +1,8 @@
+{%- assign post = include.post -%}
+<div class="post-item">
+	<h3><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h3>
+	<small>
+		<i class="fas fa-calendar-days" aria-hidden="true"></i>
+		<time datetime="{{ post.date }}" aria-description="등록일">{{ post.date | date: site.date_format }}</time>
+	</small>
+</div>

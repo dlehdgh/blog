@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<article class="mb-5">
+	<h2>{{ site.data.locals[site.lang].navbar.posts }}</h2>
+	{%- for post in site.posts limit: 5 -%}
+		{%- include postlist.html post=post -%}
+	{%- endfor -%}
+	<a href="{{ "/posts/" | relative_url }}" class="btn btn-primary">더보기 &rarr;</a>
+</article>

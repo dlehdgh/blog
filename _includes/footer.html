@@ -1,0 +1,52 @@
+<footer class="resume-footer px-lg-5 px-3 py-2">
+	<a href="{{ '/' | relative_url }}" class="navbar-brand">
+		<h1 class="h2">{{ site.title }}</h1>
+	</a>
+	<div class="social-icons my-2">
+		<a href="{{ 'feed.xml' | relative_url }}" class="social-icon" target="_blank" aria-label="RSS">
+			<i class="fas fa-rss text-info" aria-hidden="true"></i>
+		</a>
+		{%- if site.email -%}
+		<a href="mailto:{{ site.email }}" class="social-icon" aria-label="E-mail">
+			<i class="fas fa-envelope text-warning" aria-hidden="true"></i>
+		</a>
+		{%- endif -%}
+		{%- if site.github_username -%}
+		<a href="https://github.com/{{ site.github_username }}" target="_blank" class="social-icon" target="_blank" aria-label="Github">
+			<i class="fab fa-github" aria-hidden="true"></i>
+		</a>
+		{%- endif -%}
+		<!--
+		<a href="" class="social-icon" target="_blank" aria-label="LinkedIn">
+			<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+		</a>
+		<a href="" class="social-icon" target="_blank" aria-label="Twitter">
+			<i class="fab fa-twitter" aria-hidden="true"></i>
+		</a>
+		<a href="" class="social-icon" target="_blank" aria-label="Facebook">
+			<i class="fab fa-facebook-f" aria-hidden="true"></i>
+		</a>
+		-->
+	</div>
+	<address>Copyright &copy; 2017 <strong>{{ site.title }}</strong> All Rights Reserved.</address>
+</footer>
+
+<!-- Search Modal -->
+<div id="search-modal" class="modal fade" tabindex="-1" aria-labelledby="search-label" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<input type="search" id="search-input" class="form-control" placeholder="Search" aria-label="검색">
+			</div>
+			<div class="modal-body">
+				<ul id="results-container" class="srch-group list-group">
+					<li class="list-group-item py-3">검색결과가 없습니다.</li>
+				</ul>
+			</div>
+			<div class="modal-footer">
+				창을 닫으려면 <code>Esc</code>키를 누르세요.&nbsp;
+				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

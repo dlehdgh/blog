@@ -1,0 +1,11 @@
+navbar:
+  - name: about
+    url: /about/
+  - name: posts
+    url: /posts/
+  - name: year-archive
+    url: /year-archive/
+  - name: categories
+    url: /categories/
+  - name: tags
+    url: /tags/

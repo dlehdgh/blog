@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<article class="mb-5">
+	{{ content }}
+</article>
+<hr>
+
+<!-- post meta -->
+<footer class="post-meta">
+	{%- assign meta = 'btn btn-outline-primary btn-sm' -%}
+	<div>
+		<strong>
+			<i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> {{ site.data.locals[site.lang].navbar.categories }}: 
+		</strong>
+		{%- if page.categories -%}
+			{%- for category in page.categories -%}
+				<a href="{{ site.baseurl }}/categories/#{{ category }}" class="{{ meta }}">{{ category }}</a>
+				{%- if forloop.last == false -%}
+					<span class="visually-hidden">, </span>
+				{%- endif -%}
+			{%- endfor -%}
+		{%- endif -%}
+	</div>
+	<div>
+		<strong>
+			<i class="fas fa-fw fa-tags" aria-hidden="true"></i> {{ site.data.locals[site.lang].navbar.tags }}: 
+		</strong>
+		{%- if page.tags -%}
+			{%- for tag in page.tags -%}
+				<a href="{{ site.baseurl }}/tags/#{{ tag }}" class="btn btn-outline-primary btn-sm">#{{ tag }}</a>
+				{%- if forloop.last == false -%}
+					<span class="visually-hidden">, </span>
+				{%- endif -%}
+			{%- endfor -%}
+		{%- endif -%}
+	</div>
+</footer>
+
+{%- assign share = site.data.locals[site.lang].page.share -%}
+<section class="post-share mb-2">
+	<strong>
+		<i class="fa-sharp fa-solid fa-share-nodes" aria-hidden="true"></i> {{ share }}: 
+	</strong>
+	{% comment %}
+	<a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | uri_escape }}" target="_blank" class="btn btn-link p-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Facebook" aria-label="Facebook {{ share }}">
+		<i class="fa-brands fa-square-facebook fa-2x text-primary" aria-hidden="true"></i>
+	</a>
+	<a href="https://twitter.com/intent/tweet?url={{ page.url | uri_escape }}" target="_blank" class="btn btn-link p-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Twitter" aria-label="Twitter {{ share }}">
+		<i class="fa-brands fa-square-twitter fa-2x text-info" aria-hidden="true"></i>
+	</a>
+	<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ page.url | uri_escape }}" target="_blank" class="btn btn-link p-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="LinkedIn" aria-label="LinkedIn {{ share }}">
+		<i class="fab fa-linkedin fa-2x text-warning" aria-hidden="true"></i>
+	</a>
+	{% endcomment %}
+
+	<button type="button" class="btn btn-link share-facebook p-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Facebook" aria-label="Facebook {{ share }}">
+		<i class="fa-brands fa-square-facebook fa-2x text-primary" aria-hidden="true"></i>
+	</button>
+	<button type="button" class="btn btn-link share-twitter p-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Twitter" aria-label="Twitter {{ share }}">
+		<i class="fa-brands fa-square-twitter fa-2x text-info" aria-hidden="true"></i>
+	</button>
+	<button type="button" class="btn btn-link share-linkedin p-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="LinkedIn" aria-label="LinkedIn {{ share }}">
+		<i class="fab fa-linkedin fa-2x text-warning" aria-hidden="true"></i>
+	</button>
+</section>
+<hr>
+
+<nav class="pagination row">
+	{%- assign paginate_class = 'btn btn-primary' -%}
+	<div class="col">
+		{%- if page.previous.url -%}
+			<a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.previous.title }}" aria-description="{{ page.previous.title }}">
+		{%- else -%}
+			<a href="#" class="{{ paginate_class }} disabled">
+		{%- endif -%}
+		&larr; {{ site.data.locals[site.lang].page.prev_post }}</a>
+	</div>
+	<div class="col text-end">
+		{%- if page.next.url -%}
+			<a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.next.title }}" aria-description="{{ page.next.title }}">
+		{%- else -%}
+			<a href="#" class="{{ paginate_class }} disabled">
+		{%- endif -%}
+		{{ site.data.locals[site.lang].page.next_post }} &rarr;</a>
+	</div>
+</footer>

@@ -1,0 +1,25 @@
+---
+layout: default
+permalink: /year-archive/
+---
+
+<ul class="nav-skip">
+	{%- assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' -%}
+	{%- for year in postsInYear -%}
+		<li>
+			<a href="#{{ year.name }}" class="btn btn-primary">
+				<strong>
+					<i class="fa-solid fa-calendar" aria-hidden="true"></i> {{ year.name }}
+				</strong>
+				<span class="badge text-bg-light" aria-description="{{ site.data.locals[site.lang].page.posts_count }}">{{ year.items | size }}</span>
+			</a>
+		</li>
+	{%- endfor -%}
+</ul>
+
+{%- assign postsByYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' -%}
+{%- for year in postsByYear -%}
+	{%- assign title = year.name -%}
+	{%- assign posts = year.items -%}
+	{%- include postgroup.html -%}
+{%- endfor -%}

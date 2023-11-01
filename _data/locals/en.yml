@@ -1,0 +1,22 @@
+navbar:
+  home: Home
+  about: About
+  posts: Posts
+  year-archive: Year Archive
+  categories: Categories
+  tags: Tags
+  search: Search
+
+skipnav:
+  main: Skip to Content
+  menu: Skip to Navigation
+
+
+page:
+  author: Author
+  updated: Updated
+  posts_count: Posts count
+  total_posts: Total posts count
+  prev_post: Previous post
+  next_post: Next post
+

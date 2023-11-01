@@ -1,0 +1,111 @@
+/* 해딩 태그를 대문자로 바꾸는 스타일 제거 */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
+.subheading {
+	text-transform: none;
+}
+
+.z-max {
+	z-index: 9999;
+}
+
+.btn-skip:focus {
+	color: var(--bs-primary) !important;
+	font-weight: bold;
+	border: 2px solid var(--bs-primary) !important;
+	background: var(--bs-light) !important;
+}
+
+/* 링크의 밑줄 제거 */
+.breadcrumb .breadcrumb-item a,
+.post-item a,
+.social-icons .social-icon {
+	text-decoration: none;
+}
+
+/* 코드 영역 */
+pre.highlight {
+	padding: 0.5rem;
+	border: 1px solid var(--bs-secondary);
+	border-radius: 5px;
+}
+.highlight-tools {
+	float: right;
+	margin-bottom: 0.5rem;
+}
+
+/* 사이드바 */
+#sideNav .navbar-brand span {
+	color: var(--bs-navbar-active-color);
+}
+#sideNav .navbar-brand .img-profile {
+	max-width: 6rem;
+	max-height: 6rem;
+}
+
+/* 카테고리 또는 태그 등의 건너뛰기 링크 */
+.nav-skip {
+	display: grid;
+	grid-gap: 0.5rem;
+	grid-template-columns: repeat(2, 1fr);
+	padding: 0;
+	margin: 1.5em 0;
+	list-style: none;
+}
+.nav-skip li a {
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+}
+.nav-skip li a .badge {
+	line-height: normal;
+}
+
+/* 포스트 목록 */
+.post-group {
+	display: none;
+}
+.post-item {
+	margin-bottom: 1rem;
+}
+
+/* 포스트 하단 영역 */
+.post-meta strong,
+.post-share strong {
+	margin-right: 1rem;
+}
+.post-meta a {
+	--meta-margin: 0.5rem;
+	margin-right: var(--meta-margin);
+	margin-bottom: var(--meta-margin);
+}
+.post-meta a:last-child {
+	margin-right: 0;
+}
+
+/* 큰 화면일 때 적용하는 CSS */
+@media (min-width: 992px) {
+	/* 사이드바 배경이미지 지정 */
+	#sideNav {
+		/*
+		 * 마음에 드는 이미지
+		 * https://images.unsplash.com/photo-1490750967868-88aa4486c946?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bmF0dXJlfHx8fHx8MTY5Nzg0OTY4MA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600
+		 * https://images.unsplash.com/photo-1469474968028-56623f02e42e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bmF0dXJlfHx8fHx8MTY5Nzg0OTIwMQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600
+		 */
+		background-image: url(https://source.unsplash.com/1600x900/?nature);
+		background-size: cover;
+	}
+	#sideNav .navbar-brand,
+	#sideNav #navbarResponsive a.nav-link {
+		--shadow-color: var(--bs-dark);
+		/* -webkit-text-stroke: 1px var(--shadow-color); */
+		text-shadow:
+			-1px 0px var(--shadow-color),
+			0px 1px var(--shadow-color),
+			1px 0px var(--shadow-color),
+			0px -1px var(--shadow-color);
+	}
+	/* 건너뛰기 링크 */
+	.nav-skip {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

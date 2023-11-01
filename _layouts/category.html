@@ -1,0 +1,13 @@
+---
+layout: page
+---
+
+<p>{{ site.data.locals[site.lang].page.total_posts }}: <strong class="text-primary">{{ site.categories[page.category] | size }}개</strong></p>
+{%- assign total_posts = site.categories[page.category] | size -%}
+{%- if total_posts == 0 -%}
+	<p>게시글이 없습니다.</p>
+{%- else -%}
+	{%- for post in site.categories[page.category] -%}
+		{%- include postlist.html post=post -%}
+	{%- endfor -%}
+{%- endif -%}

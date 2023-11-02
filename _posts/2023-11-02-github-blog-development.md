@@ -1,9 +1,8 @@
 ---
-title: Github 블로그 - 개발환경 구축
-category:
-  - blog
+title: "Github 블로그 - 개발환경 구축"
+categories: [blog]
 tags: [Github, Blog, Jekyll, 개발환경]
-date: 
+date: 2023-11-02 13:36:00 +0000
 ---
 
 ※ 이 글은 Github로 브로그를 만드는 방법을 정리한 것입니다.

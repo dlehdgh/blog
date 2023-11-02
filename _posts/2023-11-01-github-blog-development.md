@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Github 블로그 - 개발환경 구축"
-date: 2023-11-02 13:36:00 +0000
+date: 2023-11-01 13:36:00 +0000
 categories: [blog]
 tags: [Github, Blog, Jekyll, 개발환경]
 ---

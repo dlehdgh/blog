@@ -1,0 +1,94 @@
+---
+layout: default
+permalink: /write/
+---
+
+<!--
+title: "제목"
+category: [category]
+tags: [tag1, tag2, ...]
+toc: 목차 표시 여부
+toc_sticky: 스크롤되도 목차가 공정되게 할 것인지 설정
+date: 작성일
+last_modified_at: 수정일
+-->
+
+<h3>Title</h3>
+<p><input type="text" id="title" class="form-control" title="제목"></p>
+
+<h3>Categories</h3>
+{%- for category in site.categories -%}
+	<div class="form-check">
+		<input type="checkbox" id="category-{{ category[0] }}" class="form-check-input category" value="{{ category[0] }}">
+		<label for="category-{{ category[0] }}" class="form-check-label">{{ category[0] }}</label>
+	</div>
+{%- endfor -%}
+
+<h3>Tags</h3>
+{%- for tag in site.tags -%}
+	<div class="form-check">
+		<input type="checkbox" id="tag-{{ tag[0] }}" class="form-check-input tag" value="{{ tag[0] }}">
+		<label for="tag-{{ tag[0] }}" class="form-check-label">{{ tag[0] }}</label>
+	</div>
+{%- endfor -%}
+
+<h3>ToDay</h3>
+<div class="input-group mb-3">
+	<input type="text" id="today" class="form-control disabled" aria-description="현제 시간">
+	<div class="input-group-append">
+		<button type="button" class="btn btn-outline-danger" onClick="copy($('#today')[0].value);">Copy</button>
+	</div>
+</div>
+<button type="button" id="create-head" class="btn btn-primary">생성하기</button>
+<hr>
+
+<h3>결과</h3>
+<textarea id="result" class="form-control" rows="10"></textarea>
+<button type="button" class="btn btn-danger" onClick="copy($('#result').html());">Copy</button>
+
+<script>
+	window.onload = () => {
+		let today = toDay();
+		$('#today').val(today);
+		$('#create-head').click(() => {
+			let categories = [];
+			$('.category:checked').each((i, el) => {
+				categories.push($(el).val());
+			});
+			let tags = [];
+			$('.tag:checked').each((i, el) => {
+				tags.push($(el).val());
+			});
+			let res = `---
+title: "${$('#title').val()}
+categories: [${categories.join(', ')}]
+tags: [${tags.join(', ')}]
+toc: true
+toc_sticky: true
+date: ${$('#today').val()}
+---`;
+			$('#result').html(res).focus();
+			copy(res);
+		});
+	};
+	const copy = (value) => {
+		if(!value) return false;
+		let temp = document.createElement('textarea');
+		document.body.appendChild(temp);
+		temp.value = value;
+		temp.select();
+		document.execCommand('copy');
+		document.body.removeChild(temp);
+	};
+	const toDay = () => {
+		// date: 2022-11-14 08:30:57 +0000
+		let date = new Date();
+		let year = date.getFullYear(4);
+		let month = date.getMonth() + 1;
+		let day = date.getDate();
+		let hour = date.getHours();
+		let minute = date.getMinutes();
+		let second = date.getSeconds();
+		return `${year}-${month + 1}-${day} ${hour}:${minute}:${second} +0000`;
+	};
+</script>

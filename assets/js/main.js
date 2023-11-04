@@ -37,6 +37,9 @@ $(document).ready(() => {
 		}else if(page == total_page){// last
 			paginateEl.find('.page-last, .page-next').addClass('disabled').attr('disabled', true);
 			paginateEl.find('.page-first, .page-prev').removeClass('disabled').attr('disabled', false);
+		}else if(total_page == 1){
+			paginateEl.find('.page-last, .page-next').addClass('disabled').attr('disabled', true);
+			paginateEl.find('.page-first, .page-prev').removeClass('disabled').attr('disabled', false);
 		}else{
 			paginateEl.find('.page-last, .page-next').removeClass('disabled').attr('disabled', false);
 			paginateEl.find('.page-first, .page-prev').removeClass('disabled').attr('disabled', false);

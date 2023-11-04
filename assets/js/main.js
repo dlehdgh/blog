@@ -31,15 +31,16 @@ $(document).ready(() => {
 	const pageChange = (page) => {
 		let total_page = Number(paginateEl.find('.page-total').text());
 		if(page < 1 || page > total_page) return false;
-		if(page == 1){ // first
+		if(total_page == 1){// total page is 1
+			paginateEl.find('.page-first, .page-prev').addClass('disabled').attr('disabled', true);
+			paginateEl.find('.page-last, .page-next').addClass('disabled').attr('disabled', true);
+		}else if(page == 1){ // first
 			paginateEl.find('.page-first, .page-prev').addClass('disabled').attr('disabled', true);
 			paginateEl.find('.page-last, .page-next').removeClass('disabled').attr('disabled', false);
-		}
-		if(page == total_page){// last
+		}else if(page == total_page){// last
 			paginateEl.find('.page-last, .page-next').addClass('disabled').attr('disabled', true);
 			paginateEl.find('.page-first, .page-prev').removeClass('disabled').attr('disabled', false);
-		}
-		if(page > 1 && page < total_page){
+		}else{// page > 1 && page < last
 			paginateEl.find('.page-last, .page-next').removeClass('disabled').attr('disabled', false);
 			paginateEl.find('.page-first, .page-prev').removeClass('disabled').attr('disabled', false);
 		}

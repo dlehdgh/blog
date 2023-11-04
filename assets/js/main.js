@@ -9,21 +9,56 @@ $(document).ready(() => {
 	const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 	const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
-	// 더보기 페이징 처리
-	const pgroup = '.post-group';
+	// 페이징 처리
+	const groupEl = '.post-group';
 	$('.resume-section-content article').each((i, group) => {
-		$(group).find(pgroup).eq(0).show();
+		$(group).find(groupEl).eq(0).show();
 	});
+	// 더보기 버튼 이벤트
 	$('.btn-more').click(function(){
 		let page = Number($(this).attr('data-page'));
 		let next = page + 1;
-		if(page == $(this).parent().find(pgroup).length){
+		if(page == $(this).parent().find(groupEl).length){
 			$(this).attr('disabled', true);
 		}else{
 			$(this).attr('data-page', next);
 		}
-		$(this).parent().find(`${pgroup}[data-page="${page}"]`).show();
-		$(this).parent().find(`${pgroup}[data-page="${page}"] a`).eq(0).focus();
+		$(this).parent().find(`${groupEl}[data-page="${page}"]`).show();
+		$(this).parent().find(`${groupEl}[data-page="${page}"] a`).eq(0).focus();
+	});
+	// 카테고리 페이징 처리
+	let paginateEl = $('.pagination');
+	const pageChange = (page) => {
+		let total_page = Number(paginateEl.find('.page-total').text());
+		if(page < 1 || page > total_page) return false;
+		if(page == 1){ // first
+			paginateEl.find('.page-first, .page-prev').addClass('disabled').attr('disabled', true);
+			paginateEl.find('.page-last, .page-next').removeClass('disabled').attr('disabled', false);
+		}else if(page == total_page){// last
+			paginateEl.find('.page-last, .page-next').addClass('disabled').attr('disabled', true);
+			paginateEl.find('.page-first, .page-prev').removeClass('disabled').attr('disabled', false);
+		}else{
+			paginateEl.find('.page-last, .page-next').removeClass('disabled').attr('disabled', false);
+			paginateEl.find('.page-first, .page-prev').removeClass('disabled').attr('disabled', false);
+		}
+		paginateEl.find('.page-current').text(page);
+		$(`${groupEl}`).hide();
+		$(`${groupEl}[data-page="${page}"]`).show();
+	};
+	pageChange(1);
+	paginateEl.find('.page-first, .page-last').click(function(){
+		let page = Number($(this).attr('data-page'));
+		pageChange(page);
+	});
+	// 이전 페이지로 이동
+	paginateEl.find('.page-prev').click(() => {
+		let page = Number(paginateEl.find('.page-current').text()) - 1;
+		pageChange(page);
+	});
+	// 다음 페이지로 이동
+	paginateEl.find('.page-next').click(() => {
+		let page = Number(paginateEl.find('.page-current').text()) + 1;
+		pageChange(page);
 	});
 
 	// Facebook 공유

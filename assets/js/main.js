@@ -27,7 +27,7 @@ $(document).ready(() => {
 		$(this).parent().find(`${groupEl}[data-page="${page}"] a`).eq(0).focus();
 	});
 	// 카테고리 페이징 처리
-	let paginateEl = $('.pagination');
+	let paginateEl = $('#category-pagination.pagination');
 	const pageChange = (page) => {
 		let total_page = Number(paginateEl.find('.page-total').text());
 		if(page < 1 || page > total_page) return false;

@@ -67,24 +67,20 @@ layout: default
 </article>
 <hr>
 
-<nav class="pagination row">
+<nav class="pagination d-flex justify-content-between">
 	{%- assign paginate_class = 'btn btn-primary' -%}
-	<div class="col">
-		{%- if page.previous.url -%}
-			<a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.previous.title }}" aria-description="{{ page.previous.title }}">
-		{%- else -%}
-			<a href="#" class="{{ paginate_class }} disabled">
-		{%- endif -%}
-		&larr; {{ site.data.locals[site.lang].page.prev_post }}</a>
-	</div>
-	<div class="col text-end">
-		{%- if page.next.url -%}
-			<a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.next.title }}" aria-description="{{ page.next.title }}">
-		{%- else -%}
-			<a href="#" class="{{ paginate_class }} disabled">
-		{%- endif -%}
-		{{ site.data.locals[site.lang].page.next_post }} &rarr;</a>
-	</div>
+	{%- if page.previous.url -%}
+		<a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.previous.title }}" aria-description="{{ page.previous.title }}">
+	{%- else -%}
+		<a href="#" class="{{ paginate_class }} disabled">
+	{%- endif -%}
+	&larr; {{ site.data.locals[site.lang].page.prev_post }}</a>
+	{%- if page.next.url -%}
+		<a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.next.title }}" aria-description="{{ page.next.title }}">
+	{%- else -%}
+		<a href="#" class="{{ paginate_class }} disabled">
+	{%- endif -%}
+	{{ site.data.locals[site.lang].page.next_post }} &rarr;</a>
 </nav>
 <hr>
 

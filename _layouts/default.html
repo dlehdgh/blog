@@ -11,33 +11,7 @@
 		<h1 id="main" class="visually-hidden">본문 영역</h1>
 		<section class="resume-section">
 			<div class="resume-section-content">
-				<header class="mb-5">
-				{%- if page.layout == 'home' -%}
-					<h2>{{ site.title }}</h2>
-					{%- if site.description -%}
-						<div class="subheading mb-3">{{ site.description }}</div>
-					{%- endif -%}
-				{%- else -%}
-					{%- include breadcrumbs.html -%}
-					{%- assign page_name = page.url | remove_first: "/" | split: "/" | first -%}
-					<h2>{{ page.title | default: site.data.locals[site.lang].navbar[page_name] }}</h2>
-					{%- if page.description -%}
-						<div class="subheading mb-3">{{ page.description }}</div>
-					{%- endif -%}
-					{%- if page.date -%}
-						<!-- author, updated of the post -->
-						<p class="mb-1">
-							<i class="fa fa-user text-primary" aria-hidden="true"></i>
-							<span aria-description="{{ site.data.locals[site.lang].page.author }}">{{ page.author | default: site.author }}</span>
-						</p>
-						<p>
-							<i class="fa-solid fa-calendar-days text-success" aria-hidden="true"></i>
-							<time aria-description="{{ site.data.locals[site.lang].page.updated }}">{{ page.date | date_to_string | date: site.date_time_format }}</time>
-						</p>
-					{%- endif -%}
-				{%- endif -%}
-				</header>
-
+				{%- include header.html -%}
 				{{ content }}
 			</div>
 		</section>

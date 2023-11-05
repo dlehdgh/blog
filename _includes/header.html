@@ -5,7 +5,7 @@
 			<div class="subheading mb-3">{{ site.description }}</div>
 		{%- endif -%}
 	{%- else -%}
-		{%- include breadcrumbs.html -%}
+		{% include breadcrumbs.html %}
 		{%- assign page_name = page.url | remove_first: "/" | split: "/" | first -%}
 		<h2>{{ page.title | default: site.data.locals[site.lang].navbar[page_name] }}</h2>
 		{%- if page.description -%}

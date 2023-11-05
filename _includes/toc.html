@@ -1,28 +1,28 @@
-<aside class="toc{%- if page.toc_sticky -%}{{ 'sticky-md-top' | prepend: ' ' }}{%- endif -%}">
+<aside class="toc{% if page.toc_sticky %} sticky-md-top{% endif %}">
 	<ul class="list-group">
 		<li class="list-group-item active">페이지 목차</li>
 		{%- assign nodes = include.html | strip | split: '<h' -%}
-		{%- assign minHeader = 1 -%}
-		{%- assign maxHeader = 6 -%}
-		{%- for node in nodes -%}
-			{%- if node == "" -%}
-				{%- continue -%}
-			{%- endif -%}
-			{%- assign currLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 -%}
-			{%- if currLevel >= minHeader and currLevel <= maxHeader %}
-				{%- assign hTag = node | split: '</h' %}
-				{%- assign hTagId = hTag[0] | split: 'id="' -%}
-				{%- assign hTagId = hTagId[1] | split: '"' -%}
-				{%- assign hTagText = hTagId[1] | split: '>' -%}
+		{% assign minHeader = 1 -%}
+		{% assign maxHeader = 6 -%}
+		{% for node in nodes -%}
+			{% if node == "" -%}
+				{% continue -%}
+			{% endif -%}
+			{% assign currLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 -%}
+			{% if currLevel >= minHeader and currLevel <= maxHeader %}
+				{% assign hTag = node | split: '</h' %}
+				{% assign hTagId = hTag[0] | split: 'id="' -%}
+				{% assign hTagId = hTagId[1] | split: '"' -%}
+				{% assign hTagText = hTagId[1] | split: '>' -%}
 				<li class="list-group-item">
 					{% comment %}
-					{%- for nbsp in (2..currLevel) -%}
+					{% for nbsp in (2..currLevel) -%}
 						&nbsp;
-					{%- endfor -%}
+					{% endfor -%}
 					{% endcomment %}
 					<a href="#{{ hTagId[0] }}">{{ hTagText[1] }}</a>
 				</li>
-			{%- endif -%}
+			{% endif -%}
 		{%- endfor -%}
 	</ul>
 </aside>

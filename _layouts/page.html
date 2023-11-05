@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: page
 ---
 
-<article class="mb-5">
-	{{ content }}
-</article>
+{%- if page.toc -%}
+	{% include toc.html html=content %}
+{% endif -%}
+{{ content }}

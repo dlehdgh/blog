@@ -82,6 +82,18 @@ date: ${$('#today').val()}
 		document.execCommand('copy');
 		document.body.removeChild(temp);
 	};
+	const fdate = (value, size) => {
+		let vsize = String(value).length;
+		return [...Array(size - vsize).fill(0)].join('') + String(value);
+	};
+	const fstr = (str, ...args) => {
+		args.forEach((value, i) => {
+			let find = str.match(/#+/)[0];
+			console.log('a:', find.length, 'b:', String(value).length, '=', find.length - String(value).length, '\nres:', [...Array(find.length - String(value).length).fill(0)].join(''))
+			str = str.replace(find, [...Array(find.length - String(value).length).fill(0)].join('') + value);
+		});
+		return str;
+	};
 	const toDay = () => {
 		// date: 2022-11-14 08:30:57 +0000
 		let date = new Date();
@@ -91,6 +103,7 @@ date: ${$('#today').val()}
 		let hour = date.getHours();
 		let minute = date.getMinutes();
 		let second = date.getSeconds();
-		return `${year}-${month + 1}-${day} ${hour}:${minute}:${second} +0000`;
+		// return `${year}-${month + 1}-${day} ${hour}:${minute}:${second} +0000`;
+		return fstr('####-##-## ##:##:## +0000', year, month + 1, day, hour, minute, second);
 	};
 </script>

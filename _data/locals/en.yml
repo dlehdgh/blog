@@ -17,6 +17,7 @@ page:
   updated: Updated
   posts_count: Posts count
   total_posts: Total posts count
+  share: Share
   prev_post: Previous post
   next_post: Next post
-
+  more: More

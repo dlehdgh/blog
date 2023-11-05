@@ -13,7 +13,7 @@
 	<!-- Logo -->
 	<a href="{{ '/' | relative_url }}" class="navbar-brand d-block mb-lg-4 js-scroll-trigger">
 		<span class="d-none d-lg-block">
-			<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ "/favicon.ico" | prepend: site.baseurl }}" alt="Logo">
+			<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ "/favicon.ico" | relative_url }}" alt="Logo">
 		</span>
 		<span class="h3">{{ site.title | escape }}</span>
 	</a>
@@ -28,8 +28,8 @@
 			</li>
 			{%- for navbar in site.data.navigation.navbar -%}
 				<li class="nav-item">
-					<a href="{{ navbar.url | prepend: site.baseurl }}" 
-						class="nav-link js-scroll-trigger{%- if page.url == navbar.url -%} active" aria-current="page{%- endif -%}">
+					<a href="{{ navbar.url | relative_url }}" 
+						class="nav-link js-scroll-trigger{% if page.url == navbar.url %} active" aria-current="page{% endif %}">
 						{{ local_navbar[navbar.name] }}
 					</a>
 				</li>

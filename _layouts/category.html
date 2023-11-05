@@ -2,31 +2,25 @@
 layout: page
 ---
 
-<p>{{ site.data.locals[site.lang].page.total_posts }}: <strong class="text-primary">{{ site.categories[page.category] | size }}개</strong></p>
+<p>{{ site.data.locals[site.lang].page.total_posts }}: <strong class="text-primary">{{ site.categories[page.category] | size | default: '0' }}개</strong></p>
 {%- assign total_posts = site.categories[page.category] | size -%}
-{%- if total_posts == 0 -%}
+{% if total_posts == 0 -%}
 	<p>게시글이 없습니다.</p>
-{%- else -%}
-	{% comment %}
-	{%- for post in site.categories[page.category] -%}
-		{%- include postlist.html post=post -%}
-	{%- endfor -%}
-	{% endcomment %}
-
-	{%- assign my_float = site.paginate | times: 1.0 -%}
-	{%- assign total_page = site.categories[page.category] | size | divided_by: my_float | ceil -%}
-	{%- assign index = 1 -%}
-	{%- assign count = 0 -%}
+{% else -%}
+	{% assign my_float = site.paginate | times: 1.0 -%}
+	{% assign total_page = site.categories[page.category] | size | divided_by: my_float | ceil -%}
+	{% assign index = 1 -%}
+	{% assign count = 0 -%}
 	<div class="post-group" data-page="{{ index }}">
-	{%- for post in site.categories[page.category] -%}
-		{%- include postlist.html post=post -%}
-		{%- assign count = count | plus: 1 -%}
-		{%- if count == site.paginate -%}
-			{%- assign index = index | plus: 1 -%}
-			{%- assign count = 0 -%}
+	{% for post in site.categories[page.category] -%}
+		{% include postlist.html post=post %}
+		{% assign count = count | plus: 1 -%}
+		{% if count == site.paginate -%}
+			{% assign index = index | plus: 1 -%}
+			{% assign count = 0 -%}
 			</div>
 			<div class="post-group" data-page="{{ index }}">
-		{%- endif -%}
+		{% endif -%}
 	{%- endfor -%}
 	</div>
 
@@ -34,11 +28,11 @@ layout: page
 	<ul id="category-pagination" class="pagination">
 		{%- assign page_link = "page-link" -%}
 		<li class="page-item">
-			{%- if total_page > 1 -%}
+			{% if total_page > 1 -%}
 				<button type="button" class="{{ page_link }} page-first" data-page="1">First</button>
-			{%- else -%}
+			{% else -%}
 				<span class="{{ page_link }} page-first disabled">First</span>
-			{%- endif -%}
+			{% endif -%}
 		</li>
 		<li class="page-item">
 			<button type="button" class="{{ page_link }} page-prev" aria-label="Previous">
@@ -67,7 +61,7 @@ layout: page
 		<li class="page-item">
 			{%- if total_page > 1 -%}
 				<button type="button" class="{{ page_link }} page-last" data-page="{{ total_page }}">Last</button>
-			{%- else -%}
+			{% else -%}
 				<span class="{{ page_link }} page-last disabled">Last</span>
 			{%- endif -%}
 		</li>

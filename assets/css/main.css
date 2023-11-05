@@ -1,3 +1,7 @@
+:root {
+	--toc: 15rem;
+}
+
 /* 해딩 태그를 대문자로 바꾸는 스타일 제거 */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
 .subheading {
@@ -18,6 +22,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
 /* 링크의 밑줄 제거 */
 .breadcrumb .breadcrumb-item a,
 .post-item a,
+.toc a,
 .social-icons .social-icon {
 	text-decoration: none;
 }
@@ -84,6 +89,15 @@ pre.highlight {
 
 /* 큰 화면일 때 적용하는 CSS */
 @media (min-width: 992px) {
+	/* 포스트 Toc */
+	section.resume-section {
+		padding-right: var(--toc);
+	}
+	.toc {
+		width: var(--toc);
+		margin-right: calc(var(--toc) * -1);
+		float: right;
+	}
 	/* 사이드바 배경이미지 지정 */
 	#sideNav {
 		/*

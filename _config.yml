@@ -43,6 +43,8 @@ theme: minima
 
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  input: GFM
 
 paginate: 5 # 10
 paginate_path: "/posts/page:num/"

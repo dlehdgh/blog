@@ -4,6 +4,7 @@ permalink: /write/
 ---
 
 <!--
+layout: post
 title: "제목"
 category: [category]
 tags: [tag1, tag2, ...]
@@ -60,7 +61,8 @@ last_modified_at: 수정일
 				tags.push($(el).val());
 			});
 			let res = `---
-title: "${$('#title').val()}
+layout: post
+title: "${$('#title').val()}"
 categories: [${categories.join(', ')}]
 tags: [${tags.join(', ')}]
 toc: true

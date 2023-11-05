@@ -3,6 +3,9 @@ layout: default
 ---
 
 <article class="mb-5">
+	{%- if page.toc -%}
+		{%- include toc.html html=content -%}
+	{%- endif -%}
 	{{ content | toc }}
 </article>
 <hr>

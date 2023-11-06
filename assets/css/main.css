@@ -112,6 +112,7 @@ pre.highlight {
 .page-content > h5:not(:first-child) {
 	margin-top: 1rem;
 }
+.page-header strong
 .page-meta strong,
 .page-share strong {
 	margin-right: 1rem;

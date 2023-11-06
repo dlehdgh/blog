@@ -15,13 +15,13 @@
 			<!-- author, updated of the post -->
 			<p class="mb-1">
 				<strong>
-					<i class="fa fa-user text-primary" aria-hidden="true"></i> {{ site.data.locals[site.lang].page.author }}
+					<i class="fa fa-user text-primary" aria-hidden="true"></i> {{ site.data.locals[site.lang].page.author }}: 
 				</strong>
 				<span>{{ page.author | default: site.author }}</span>
 			</p>
 			<p>
 				<strong>
-					<i class="fa-solid fa-calendar-days text-success" aria-hidden="true"></i> {{ site.data.locals[site.lang].page.updated }}
+					<i class="fa-solid fa-calendar-days text-success" aria-hidden="true"></i> {{ site.data.locals[site.lang].page.updated }}: 
 				</strong>
 				<time>{{ page.date | date_to_string | date: site.date_time_format }}</time>
 			</p>

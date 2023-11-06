@@ -6,21 +6,25 @@
 		{%- endif -%}
 	{%- else -%}
 		{% include breadcrumbs.html %}
-		{%- assign page_name = page.url | remove_first: "/" | split: "/" | first -%}
+		{% assign page_name = page.url | remove_first: "/" | split: "/" | first -%}
 		<h2>{{ page.title | default: site.data.locals[site.lang].navbar[page_name] }}</h2>
-		{%- if page.description -%}
+		{% if page.description -%}
 			<div class="subheading mb-3">{{ page.description }}</div>
-		{%- endif -%}
-		{%- if page.date -%}
+		{% endif -%}
+		{% if page.date -%}
 			<!-- author, updated of the post -->
 			<p class="mb-1">
-				<i class="fa fa-user text-primary" aria-hidden="true"></i>
-				<span aria-description="{{ site.data.locals[site.lang].page.author }}">{{ page.author | default: site.author }}</span>
+				<strong>
+					<i class="fa fa-user text-primary" aria-hidden="true"></i> {{ site.data.locals[site.lang].page.author }}
+				</strong>
+				<span>{{ page.author | default: site.author }}</span>
 			</p>
 			<p>
-				<i class="fa-solid fa-calendar-days text-success" aria-hidden="true"></i>
-				<time aria-description="{{ site.data.locals[site.lang].page.updated }}">{{ page.date | date_to_string | date: site.date_time_format }}</time>
+				<strong>
+					<i class="fa-solid fa-calendar-days text-success" aria-hidden="true"></i> {{ site.data.locals[site.lang].page.updated }}
+				</strong>
+				<time>{{ page.date | date_to_string | date: site.date_time_format }}</time>
 			</p>
-		{%- endif -%}
+		{% endif -%}
 	{%- endif -%}
 </header>

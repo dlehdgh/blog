@@ -1,6 +1,6 @@
-<aside class="toc{% if page.toc_sticky %} sticky-md-top{% endif %}">
-	<ul class="list-group">
-		<li class="list-group-item active">페이지 목차</li>
+<aside class="toc card mb-2{% if page.toc_sticky %} sticky-md-top{% endif %}">
+	<div class="card-header text-bg-secondary">페이지 목차</div>
+	<ul class="list-group list-group-flush">
 		{%- assign nodes = include.html | strip | split: '<h' -%}
 		{% assign minHeader = 1 -%}
 		{% assign maxHeader = 6 -%}

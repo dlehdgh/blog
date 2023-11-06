@@ -93,13 +93,12 @@ pre.highlight {
 ┌─ .page-header
 ├─ .page-content
 ├─ .page-meta
-│  ├─ .page-categories
-│  └─ .page-tags
 ├─ .page-share
 └─ .pagination
 */
-.page-header {}
-.page-content {}
+.page-header, .page-content {
+	margin-bottom: 3rem;
+}
 .page-content > h2:not(:first-child) {
 	margin-top: 3rem;
 }
@@ -112,7 +111,6 @@ pre.highlight {
 .page-content > h5:not(:first-child) {
 	margin-top: 1rem;
 }
-.page-header strong
 .page-meta strong,
 .page-share strong {
 	margin-right: 1rem;

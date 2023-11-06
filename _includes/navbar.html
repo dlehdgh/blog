@@ -24,7 +24,7 @@
 	<div class="collapse navbar-collapse" id="navbarResponsive">
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<a href="{{ '/' | relative_url }}" class="nav-link js-scroll-trigger">{{ local_navbar['home'] }}</a>
+				<a href="{{ '/' | relative_url }}" class="nav-link js-scroll-trigger{% if page.url == '/' %} active" aria-current="page{% endif %}">{{ local_navbar['home'] }}</a>
 			</li>
 			{%- for navbar in site.data.navigation.navbar -%}
 				<li class="nav-item">

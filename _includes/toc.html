@@ -1,4 +1,4 @@
-<aside class="toc card mb-2{% if page.toc_sticky %} sticky-md-top{% endif %}">
+<aside class="toc card mb-2 border-secondary{% if page.toc_sticky %} sticky-md-top{% endif %}">
 	<div class="card-header text-bg-secondary">페이지 목차</div>
 	<ul class="list-group list-group-flush">
 		{%- assign nodes = include.html | strip | split: '<h' -%}

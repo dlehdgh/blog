@@ -2,18 +2,16 @@
 layout: default
 ---
 
-<article class="mb-5">
+<article class="page-content">
 	{%- if page.toc -%}
 		{% include toc.html html=content %}
 	{% endif -%}
 	{{ content | toc }}
 </article>
-<hr>
 
-<!-- post meta -->
 <footer class="post-meta">
 	{%- assign meta = 'btn btn-outline-primary btn-sm' -%}
-	<div class="post-categories">
+	<div>
 		<strong>
 			<i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> {{ site.data.locals[site.lang].navbar.categories }}: 
 		</strong>
@@ -28,7 +26,7 @@ layout: default
 			{% endfor -%}
 		{% endif -%}
 	</div>
-	<div class="post-tags">
+	<div>
 		<strong>
 			<i class="fas fa-fw fa-tags" aria-hidden="true"></i> {{ site.data.locals[site.lang].navbar.tags }}: 
 		</strong>

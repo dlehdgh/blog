@@ -3,7 +3,7 @@ layout: default
 ---
 
 {{ content }}
-
+<p>page.url: {{ page.url}}</p>
 <article class="mb-5">
 	<h2>{{ site.data.locals[site.lang].navbar.posts }}</h2>
 	{%- for post in site.posts limit: 5 -%}

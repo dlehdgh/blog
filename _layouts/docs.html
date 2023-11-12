@@ -5,6 +5,7 @@ layout: page
 {{ content }}
 
 {%- assign page_class = 'post-group list-group mb-2' -%}
+{% assign category = page.permalink | replace: "/", "" -%}
 {% assign docs = site.pages | where_exp: "item", "item.category == category" | sort: "title" -%}
 {% assign my_float = site.paginate | times: 1.0 -%}
 {% assign total_page = docs | size | divided_by: my_float | ceil -%}

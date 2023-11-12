@@ -30,9 +30,6 @@ permalink: /:categories/:title/ # 포스트 주소 e.g. /:categories/:year/:mont
 # 언어 설정
 lang: ko-KR
 
-# 이미지 경로
-image_path: /assets/image/
-
 # 날짜 형식 지정(년.월.일 시:분:초 AM/PM)
 date_format: "%Y.%m.%d"
 date_time_format: "%Y.%m.%d %I:%M"
@@ -48,7 +45,7 @@ highlighter: rouge
 kramdown:
   input: GFM
 
-paginate: 5 # 10
+paginate: 10
 paginate_path: "/posts/page:num/"
 paginate_size: 5
 

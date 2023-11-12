@@ -1,0 +1,27 @@
+---
+layout: page
+---
+
+{{ content }}
+
+{%- assign page_class = 'post-group list-group mb-2' -%}
+{% assign docs = site.pages | where_exp: "item", "item.category == category" | sort: "title" -%}
+{% assign my_float = site.paginate | times: 1.0 -%}
+{% assign total_page = docs | size | divided_by: my_float | ceil -%}
+{% assign index = 1 -%}
+{% assign count = 0 -%}
+<div class="{{ page_class }}" data-page="{{ index }}">
+{% for post in docs -%}
+	<a href="{{ post.url | relative_url }}" class="list-group-item list-group-item-action">
+		<i class="fa-solid fa-file-lines fa-lg" aria-hidden="true"></i> {{ post.title }}
+	</a>
+	{% assign count = count | plus: 1 -%}
+	{% if count == site.paginate -%}
+		{% assign index = index | plus: 1 -%}
+		{% assign count = 0 -%}
+		</div>
+		<div class="{{ page_class }}" data-page="{{ index }}">
+	{% endif -%}
+{% endfor -%}
+</div>
+{% include paginate.html total_page=total_page %}

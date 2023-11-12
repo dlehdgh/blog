@@ -3,8 +3,11 @@
 }
 
 blockquote {
-	padding: 0.5rem;
-	border-left: 4px solid var(--bs-success);
+	padding: 0.75rem;
+	/* bootstrap .callout-info style copy */
+	color: #055160;
+	border-left: 0.25rem solid #9eeaf9;
+	background-color: #cff4fc;
 }
 blockquote :last-child {
 	margin-bottom: 0;
@@ -26,33 +29,42 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
 	border: 2px solid var(--bs-primary) !important;
 	background: var(--bs-light) !important;
 }
-.btn-run, .btn-copy {
-	margin: 0.25rem;
-}
 
 /* 링크의 밑줄 제거 */
-.breadcrumb .breadcrumb-item a,
+/* .breadcrumb .breadcrumb-item a,
+.post-group a,
 .post-item a,
 .toc a,
-.social-icons .social-icon {
+.social-icons .social-icon { */
+a {
 	text-decoration: none;
 }
 
 /* 코드 영역
-┌─ div.highlight
-│  └─ pre.highlight
+┌─ .highlighter-rouge
+│  ├─ div.highlight
+│  │  ├─ .highlight-tools
+│  │  └─ pre.highlight
 */
 .highlight {
-	border: 1px solid var(--bs-dark);
+	margin-bottom: 1rem;
 	border-radius: 5px;
 }
 pre.highlight {
-	padding: 0.5rem;
-	
+	tab-size: 4;
+	padding: 1rem;
+	margin: 0;
 }
 .highlight-tools {
 	float: right;
-	margin-bottom: 0.5rem;
+	padding: 0.25rem;
+}
+/* 목록에 코드가 있는 경우 여백 지정 */
+li > .highlighter-rouge {
+	margin-top: 1rem;
+}
+li > .highlighter-rouge:last-child {
+	margin-bottom: 0;
 }
 
 /* 사이드바 */
@@ -82,9 +94,9 @@ pre.highlight {
 }
 
 /* 포스트 목록 */
-.post-group {
+/* .post-group {
 	display: none;
-}
+} */
 .post-item {
 	margin-bottom: 1rem;
 }
@@ -93,6 +105,7 @@ pre.highlight {
 ┌─ .page-header
 ├─ .page-content
 ├─ .page-meta
+│  └─ .page-taxonomy
 ├─ .page-share
 └─ .pagination
 */
@@ -111,16 +124,20 @@ pre.highlight {
 .page-content > h5:not(:first-child) {
 	margin-top: 1rem;
 }
-.page-meta strong,
-.page-share strong {
+/* 카테고리, 태그, 공유를 나타내는 제목에 여백 지정 */
+.page-meta :first-child,
+.page-share :first-child {
 	margin-right: 1rem;
 }
-.page-meta a {
+.page-meta .page-taxonomy {
+	margin-bottom: 0.5rem;
+}
+.page-meta .page-taxonomy a {
 	--meta-margin: 0.5rem;
 	margin-right: var(--meta-margin);
 	margin-bottom: var(--meta-margin);
 }
-.page-meta a:last-child {
+.page-meta .page-taxonomy a:last-child {
 	margin-right: 0;
 }
 

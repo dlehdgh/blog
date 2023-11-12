@@ -8,7 +8,7 @@ permalink: /tags/
 	<li>
 		<a href="#{{ tag[0] }}" class="btn btn-primary">
 			<strong><i class="fa-solid fa-tag" aria-hidden="true"></i> {{ tag[0] }}</strong>
-			<span class="badge text-bg-light" aria-description="{{ site.data.locals[site.lang].page.posts_count }}">{{ tag[1] | size }}</span>
+			<span class="badge text-bg-light">{{ tag[1] | size }}</span>
 		</a>
 	</li>
 	{% endfor -%}

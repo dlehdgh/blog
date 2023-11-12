@@ -5,6 +5,7 @@ navbar:
   year-archive: 연도 아카이브
   categories: 카테고리
   tags: 태그
+  testing: 접근성 테스트
   search: 검색
 
 skipnav:

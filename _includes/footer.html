@@ -6,16 +6,16 @@
 		<a href="{{ 'feed.xml' | relative_url }}" class="social-icon" target="_blank" aria-label="RSS">
 			<i class="fas fa-rss text-info" aria-hidden="true"></i>
 		</a>
-		{%- if site.email -%}
+		{% if site.email -%}
 		<a href="mailto:{{ site.email }}" class="social-icon" aria-label="E-mail">
 			<i class="fas fa-envelope text-warning" aria-hidden="true"></i>
 		</a>
-		{%- endif -%}
-		{%- if site.github_username -%}
+		{% endif -%}
+		{% if site.github_username -%}
 		<a href="https://github.com/{{ site.github_username }}" target="_blank" class="social-icon" target="_blank" aria-label="Github">
 			<i class="fab fa-github" aria-hidden="true"></i>
 		</a>
-		{%- endif -%}
+		{% endif -%}
 		{% comment %}
 		<a href="" class="social-icon" target="_blank" aria-label="LinkedIn">
 			<i class="fab fa-linkedin-in" aria-hidden="true"></i>

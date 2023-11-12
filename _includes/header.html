@@ -3,8 +3,8 @@
 		<h2>{{ site.title }}</h2>
 		{% if site.description -%}
 			<div class="subheading mb-3">{{ site.description }}</div>
-		{%- endif -%}
-	{%- else -%}
+		{% endif -%}
+	{% else -%}
 		{% include breadcrumbs.html %}
 		{% assign page_name = page.url | remove_first: "/" | split: "/" | first -%}
 		<h2>{{ page.title | default: site.data.locals[site.lang].navbar[page_name] }}</h2>
@@ -19,7 +19,7 @@
 			</p>
 			<p>
 				<i class="fa-solid fa-calendar-days text-success" aria-hidden="true"></i>
-				<time aria-description="{{ site.data.locals[site.lang].page.updated }}">{{ page.date | date_to_string | date: site.date_time_format }}</time>
+				{% include datetime.html date=page.date format=site.date_time_format %}
 			</p>
 		{% endif -%}
 	{%- endif -%}

@@ -9,7 +9,7 @@
 			{% if forloop.last -%}
 				<li class="breadcrumb-item active" aria-current="page">
 					{%- assign title = navbar[crumb] | default: crumb -%}
-					{{ page.title | default: navbar[crumb] | default: crumb }}
+					{{ page.title | default: title }}
 				</li>
 			{% else -%}
 				<li class="breadcrumb-item">
@@ -17,10 +17,10 @@
 					{% for crumb in crumbs limit: crumb_limit %}
 						{{ crumb | append: '/' }}
 					{% endfor %}">
-						{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}
+						{{ navbar[crumb] | default: crumb | replace: '-', ' ' | remove: '.html' | capitalize }}
 					</a>
 				</li>
-			{% endif %}
-		{% endfor %}
+			{% endif -%}
+		{% endfor -%}
 	</ol>
 </nav>

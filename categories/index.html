@@ -9,14 +9,14 @@ layout: default
 			<strong>
 				<i class="fas fa-folder-open" aria-hidden="true"></i> {{ category[0] }}
 			</strong>
-			<span class="badge text-bg-light" aria-description="{{ site.data.locals[site.lang].page.posts_count }}">{{ category[1].size }}</span>
+			<span class="badge text-bg-light">{{ category[1].size }}</span>
 		</a>
 	</li>
 	{%- endfor -%}
 </ul>
 
 {%- for category in site.categories -%}
-	{%- assign title = category[0] -%}
-	{%- assign posts = category[1] -%}
-	{%- include postgroup.html -%}
-{% endfor %}
+	{% assign title = category[0] -%}
+	{% assign posts = category[1] -%}
+	{% include postgroup.html %}
+{% endfor -%}

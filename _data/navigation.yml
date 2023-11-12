@@ -9,3 +9,5 @@ navbar:
     url: /categories/
   - name: tags
     url: /tags/
+  - name: testing
+    url: /testing/

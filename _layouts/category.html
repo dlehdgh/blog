@@ -2,6 +2,8 @@
 layout: page
 ---
 
+{{ content }}
+
 <p>{{ site.data.locals[site.lang].page.total_posts }}: <strong class="text-primary">{{ site.categories[page.category] | size | default: '0' }}개</strong></p>
 {%- assign total_posts = site.categories[page.category] | size -%}
 {% if total_posts == 0 -%}
@@ -23,47 +25,5 @@ layout: page
 		{% endif -%}
 	{%- endfor -%}
 	</div>
-
-	<!-- Pagination -->
-	<ul id="category-pagination" class="pagination">
-		{%- assign page_link = "page-link" -%}
-		<li class="page-item">
-			{% if total_page > 1 -%}
-				<button type="button" class="{{ page_link }} page-first" data-page="1">First</button>
-			{% else -%}
-				<span class="{{ page_link }} page-first disabled">First</span>
-			{% endif -%}
-		</li>
-		<li class="page-item">
-			<button type="button" class="{{ page_link }} page-prev" aria-label="Previous">
-				<i aria-hidden="true">«</i>
-			</button>
-		</li>
-		<li class="page-item">
-			<span class="page-link disabled">Page: <span class="page-current" aria-current="page">1</span> / <span class="page-total">{{ total_page }}</span></span>
-		</li>
-		{% comment %}
-		{%- for i in (1..total_page) -%}
-			<li class="page-item">
-			{%- if i == 1 -%}
-				<button type="button" class="{{ page_link }} active" data-page="{{ i }}" aria-current="page" disabled>{{ i }}</button>
-			{%- else -%}
-				<button type="button" class="{{ page_link }}" data-page="{{ i }}">{{ i }}</button>
-			{%- endif -%}
-			</li>
-		{%- endfor -%}
-		{% endcomment %}
-		<li class="page-item">
-			<button type="button" class="{{ page_link }} page-next" aria-label="Next">
-				<i aria-hidden="true">»</i>
-			</button>
-		</li>
-		<li class="page-item">
-			{%- if total_page > 1 -%}
-				<button type="button" class="{{ page_link }} page-last" data-page="{{ total_page }}">Last</button>
-			{% else -%}
-				<span class="{{ page_link }} page-last disabled">Last</span>
-			{%- endif -%}
-		</li>
-	</ul>
+	{% include paginate.html total_page=total_page %}
 {%- endif -%}

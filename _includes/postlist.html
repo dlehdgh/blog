@@ -3,6 +3,6 @@
 	<h3><a href="{{ post.url | relative_url | replace: '//', '/' }}">{{ post.title }}</a></h3>
 	<small>
 		<i class="fas fa-calendar-days" aria-hidden="true"></i>
-		<time datetime="{{ post.date }}" aria-description="{{ site.data.locals[site.lang].page.updated }}">{{ post.date | date: site.date_format }}</time>
+		{% include datetime.html date=post.date format=site.date_format %}
 	</small>
 </div>

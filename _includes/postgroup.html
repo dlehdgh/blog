@@ -1,26 +1,33 @@
-<article class="mb-5">
+{% comment %}
+* 사용방법
+title, posts 변수를 사용해 목록을 출력함.
+include의 값으로 배열을 전달할 때 오류가 발생하는 문제로 아래와 같은 방식으로 사용함.
+
+e.g.
+{% assign title = 포스트 그룹의 제목 %}
+{% assign posts = 포스트 목록 배열 %}
+{% include postgroup.html %}
+{% endcomment %}
+<article class="page-content">
 	<h3 id="{{ title }}">{{ title }}</h3>
-	{%- assign total = 0 -%}
-	{% assign page = 1 -%}
-	{% assign count = 1 -%}
+	{%- assign total_page = posts | size | divided_by: site.paginate | ceil -%}
+	{% assign index = 1 -%}
+	{% assign count = 0 -%}
+	<div class="post-group" data-page="{{ index }}">
 	{% for post in posts -%}
-		{% if count == 1 -%}
-			{% assign total = total | plus: 1 -%}
-			<div class="post-group" data-page="{{ page }}">
-		{%- endif -%}
 		{% include postlist.html post=post %}
-		{% if count == site.paginate -%}
-			</div>
-			{%- assign count = 0 -%}
-			{% assign page = page | plus: 1 -%}
-		{%- elsif forloop.last -%}
-			</div>
-		{%- endif -%}
 		{% assign count = count | plus: 1 -%}
-	{%- endfor -%}
-	{% if total > 1 -%}
+		{% if count == site.paginate -%}
+			{% assign index = index | plus: 1 -%}
+			{% assign count = 0 -%}
+			</div>
+			<div class="post-group" data-page="{{ index }}">
+		{% endif -%}
+	{% endfor -%}
+	</div>
+	{% if total_page > 1 -%}
 		<button type="button" class="btn btn-primary btn-more" data-page="2" aria-description="{{ title }}">
-			{{ site.data.locals[site.lang].page.more }} <i aria-hidden="true">→</i>
+			{{ site.data.locals[site.lang].page.more }} <i aria-hidden="true">&rarr;</i>
 		</button>
-	{%- endif -%}
+	{% endif -%}
 </article>

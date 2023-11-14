@@ -1,0 +1,63 @@
+[Github 블로그 만들기]
+
+.
+┌─ _data
+│  └─ navbar.yml
+├─ _includes
+│  ├─ navbar.html
+│  ├─ postgroup.html
+│  ├─ postlist.html
+│  └─ paginate.html
+├─ _layout
+│  ├─ default.html
+│  ├─ home.html
+│  ├─ page.html
+│  └─ post.html
+├─ _plugins
+│  └─ simple_search_filter.rb
+├─ _posts
+├─ assets
+│  ├─ css
+│  │  ├─ main.css
+│  │  ├─ styles.css
+│  │  └─ syntex.css
+│  ├─ image
+│  ├─ js
+│  │  ├─ main.js
+│  │  ├─ scripts.js
+│  │  └─ simple-jekyll-search.js
+├─ posts
+│  └─ index.html
+├─ about.md
+├─ favicon.ico
+├─ index.html
+└─ search.json
+...
+
+github-blog-
+* 소개	intro
+* 개발환경 구축	development
+* Jekyll Liqueid 문법	liquid-grammar
+* 기본 설정	default-settings
+  - _config.yml 설정
+  - 디렉토리 구조
+* Jekyll 변수와 머리말	var
+* 레이아웃 구성	layout
+* 데이터 파일과 네비게이션	navigation
+* 페이지	pages
+  - index.html
+  - about.md
+* 포스트와 페이지 나누기	post-list
+* 카테고리와 태그	categories-and-tags
+* 연도 아카이브	year-archive
+* 다른 페이지의 페이지 나누기	archive-paginate
+* 검색 기능 구현하기	search
+* 포스트 작성하기	post-write
+// * 마크다운 문법
+* 배포하기
+
+참고
+* Jekyll • 심플한, 블로그 지향적, 정적 사이트 : https://jekyllrb-ko.github.io/docs/
+* Simple-Jekyll-Search : https://github.com/christian-fei/Simple-Jekyll-Search
+* Jekyll::Paginate V2 : https://github.com/sverrirs/jekyll-paginate-v2
+  - Github 지원 안 함.

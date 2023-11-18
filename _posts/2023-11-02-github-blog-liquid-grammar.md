@@ -5,7 +5,7 @@ categories: [blog]
 tags: [Github, Blog, Jekyll, Liquid]
 toc: true
 toc_sticky: true
-date: date: 2023-11-02 15:36
+date: 2023-11-02 15:36
 ---
 
 Liquid는 Object, Tag, Filter 이렇게 3개의 카테고리로 분류 할 수 있다.

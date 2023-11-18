@@ -2,7 +2,6 @@
 layout: example
 title: figure와 표
 category: testing
-excerpt:
 ---
 
 figure 요소 안에 표가 있는 경우 스크린리더가 어떻게 읽어주는지 테스트하기 위한 페이지입니다.

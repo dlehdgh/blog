@@ -2,7 +2,6 @@
 layout: example
 title: 폼(form) - 입력란과 title 속성
 category: testing
-excerpt:
 ---
 
 ```html

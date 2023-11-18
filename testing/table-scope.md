@@ -2,7 +2,6 @@
 layout: example
 title: 표(table) - 복잡한 구조의 표(scope)
 category: testing
-excerpt:
 ---
 
 ```html

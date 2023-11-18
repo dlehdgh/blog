@@ -2,7 +2,6 @@
 layout: example
 title: 폼(form) - 입력란과 빈 레이블
 category: testing
-excerpt:
 ---
 
 ```html

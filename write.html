@@ -23,7 +23,7 @@ last_modified_at: 수정일
 		<input type="checkbox" id="category-{{ category[0] }}" class="form-check-input category" value="{{ category[0] }}">
 		<label for="category-{{ category[0] }}" class="form-check-label">{{ category[0] }}</label>
 	</div>
-{%- endfor -%}
+{% endfor -%}
 
 <h3>Tags</h3>
 {%- for tag in site.tags -%}
@@ -31,7 +31,7 @@ last_modified_at: 수정일
 		<input type="checkbox" id="tag-{{ tag[0] }}" class="form-check-input tag" value="{{ tag[0] }}">
 		<label for="tag-{{ tag[0] }}" class="form-check-label">{{ tag[0] }}</label>
 	</div>
-{%- endfor -%}
+{% endfor -%}
 
 <h3>ToDay</h3>
 <div class="input-group mb-3">
@@ -49,7 +49,7 @@ last_modified_at: 수정일
 
 <script>
 	window.onload = () => {
-		let today = toDay();
+		let today = today();
 		$('#today').val(today);
 		$('#create-head').click(() => {
 			let categories = [];
@@ -82,28 +82,22 @@ date: ${$('#today').val()}
 		document.execCommand('copy');
 		document.body.removeChild(temp);
 	};
-	const fdate = (value, size) => {
-		let vsize = String(value).length;
-		return [...Array(size - vsize).fill(0)].join('') + String(value);
-	};
 	const fstr = (str, ...args) => {
 		args.forEach((value, i) => {
 			let find = str.match(/#+/)[0];
-			console.log('a:', find.length, 'b:', String(value).length, '=', find.length - String(value).length, '\nres:', [...Array(find.length - String(value).length).fill(0)].join(''))
 			str = str.replace(find, [...Array(find.length - String(value).length).fill(0)].join('') + value);
 		});
 		return str;
 	};
-	const toDay = () => {
-		// date: 2022-11-14 08:30:57 +0000
+	const today = () => {
+		// date: 2022-11-14 08:30
 		let date = new Date();
 		let year = date.getFullYear(4);
 		let month = date.getMonth() + 1;
 		let day = date.getDate();
-		let hour = date.getHours();
-		let minute = date.getMinutes();
-		let second = date.getSeconds();
-		// return `${year}-${month + 1}-${day} ${hour}:${minute}:${second} +0000`;
-		return fstr('####-##-## ##:##:## +0000', year, month + 1, day, hour, minute, second);
+		let hours = date.getHours();
+		let minutes = date.getMinutes();
+		// let seconds = date.getSeconds();
+		return fstr('####-##-## ##:##', year, month, day, hours, minutes);
 	};
 </script>

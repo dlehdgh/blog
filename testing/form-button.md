@@ -2,7 +2,6 @@
 layout: example
 title: 폼(form) - 버튼과 이미지 버튼
 category: testing
-excerpt:
 ---
 
 {%- assign img_apple = "/assets/image/apple.png" | relative_url -%}

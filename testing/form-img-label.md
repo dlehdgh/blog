@@ -2,7 +2,6 @@
 layout: example
 title: 폼(form) - 이미지 레이블(Image Label)
 category: testing
-excerpt:
 ---
 
 ```html

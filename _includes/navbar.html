@@ -1,9 +1,9 @@
-{%- assign local_navbar = site.data.locals[site.lang].navbar -%}
+{%- assign names = site.data.navigation.names -%}
 <!-- Skip Navigation -->
 <div class="navbar fixed-top visually-hidden-focusable z-max">
 	<div class="container-fluid">
-		<a href="#main" class="visually-hidden-focusable btn btn-skip">{{ site.data.locals[site.lang].skipnav.main }}</a>
-		<a href="#sideNav" class="visually-hidden-focusable btn btn-skip">{{ site.data.locals[site.lang].skipnav.menu }}</a>
+		<a href="#main" class="visually-hidden-focusable btn btn-skip">{{ site.data.navigation.skipnav.main }}</a>
+		<a href="#sideNav" class="visually-hidden-focusable btn btn-skip">{{ site.data.navigation.skipnav.menu }}</a>
 	</div>
 </div>
 
@@ -12,30 +12,30 @@
 	<!-- Logo -->
 	<a href="{{ '/' | relative_url }}" class="navbar-brand d-block mb-lg-4 js-scroll-trigger">
 		<span class="d-none d-lg-block">
-			<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ "/favicon.ico" | relative_url }}" alt="Logo">
+			<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ '/favicon.ico' | relative_url }}" alt="Logo">
 		</span>
 		<span class="h2">{{ site.title | escape }}</span>
 	</a>
-	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="메뉴">
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Menu">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<!-- Menu -->
 	<div class="collapse navbar-collapse" id="navbarResponsive">
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<a href="{{ '/' | relative_url }}" class="nav-link js-scroll-trigger{% if page.url == '/' %} active" aria-current="page{% endif %}">{{ local_navbar['home'] }}</a>
+				<a href="{{ '/' | relative_url }}" class="nav-link js-scroll-trigger{% if page.url == '/' %} active" aria-current="page{% endif %}">{{ names.home }}</a>
 			</li>
-			{%- for navbar in site.data.navigation.navbar -%}
+			{% for navbar in site.data.navigation.navbar -%}
 				<li class="nav-item">
 					<a href="{{ navbar.url | relative_url }}" class="nav-link js-scroll-trigger{% if page.url == navbar.url %} active" aria-current="page{% endif %}">
-						{{ local_navbar[navbar.name] }}
+						{{ names[navbar.name] }}
 					</a>
 				</li>
-			{%- endfor -%}
+			{% endfor -%}
 			<li class="nav-item">
 				<a href="#" class="nav-link js-scroll-trigger" data-bs-toggle="modal" data-bs-target="#search-modal">
 					<i class="fa fa-search" aria-hidden="true"></i>
-					<span>{{ local_navbar['search'] }}</span>
+					<span>{{ names.search }}</span>
 				</a>
 			</li>
 		</ul>

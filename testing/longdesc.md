@@ -1,8 +1,11 @@
 ---
 layout: example
-title: 이미지와 Longdesc
+title: 이미지와 longdesc 속성
 category: testing
-excerpt:
 ---
+
+```html
+<img src="{{ '/assets/image/apple.png' | relative_url }}" alt="조직도" longdesc="chart.html">
+```
 
 <img src="{{ '/assets/image/apple.png' | relative_url }}" alt="조직도" longdesc="chart.html">

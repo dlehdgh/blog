@@ -2,7 +2,6 @@
 layout: example
 title: 폼(form) - 입력란(input)
 category: testing
-excerpt:
 ---
 
 ```html

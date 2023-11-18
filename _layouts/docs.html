@@ -7,14 +7,16 @@ layout: page
 {%- assign page_class = 'post-group list-group mb-2' -%}
 {% assign category = page.permalink | replace: "/", "" -%}
 {% assign docs = site.pages | where_exp: "item", "item.category == category" | sort: "title" -%}
+{% assign total_posts = docs | size -%}
 {% assign my_float = site.paginate | times: 1.0 -%}
-{% assign total_page = docs | size | divided_by: my_float | ceil -%}
+{% assign total_page = total_posts | divided_by: my_float | ceil -%}
 {% assign index = 1 -%}
 {% assign count = 0 -%}
+<p>{{ site.data.navigation.page.total_posts }}: <strong class="text-primary">{{ total_posts | default: '0' }}</strong></p>
 <div class="{{ page_class }}" data-page="{{ index }}">
 {% for post in docs -%}
 	<a href="{{ post.url | relative_url }}" class="list-group-item list-group-item-action">
-		<i class="fa-solid fa-file-lines fa-lg" aria-hidden="true"></i> {{ post.title }}
+		<i class="fa-solid fa-file-lines" aria-hidden="true"></i> {{ post.title }}
 	</a>
 	{% assign count = count | plus: 1 -%}
 	{% if count == site.paginate -%}
@@ -23,6 +25,6 @@ layout: page
 		</div>
 		<div class="{{ page_class }}" data-page="{{ index }}">
 	{% endif -%}
-{% endfor -%}
+{%- endfor -%}
 </div>
 {% include paginate.html total_page=total_page %}

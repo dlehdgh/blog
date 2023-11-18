@@ -14,7 +14,7 @@ layout: default
 	{% assign meta = 'btn btn-outline-primary btn-sm' -%}
 	<p class="page-taxonomy">
 		<strong>
-			<i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> {{ site.data.locals[site.lang].navbar.categories }}: 
+			<i class="fas fa-folder-open" aria-hidden="true"></i> {{ site.data.navigation.names.categories }}: 
 		</strong>
 		{% if page.categories -%}
 			{% for category in page.categories -%}
@@ -29,11 +29,11 @@ layout: default
 	</p>
 	<p class="page-taxonomy">
 		<strong>
-			<i class="fas fa-fw fa-tags" aria-hidden="true"></i> {{ site.data.locals[site.lang].navbar.tags }}: 
+			<i class="fas fa-tags" aria-hidden="true"></i> {{ site.data.navigation.names.tags }}: 
 		</strong>
 		{% if page.tags -%}
 			{% for tag in page.tags -%}
-				<a href="{{ '/tags/' | append: path_type | append: tag | relative_url }}" class="{{ meta }}">#{{ tag }}</a>
+				<a href="{{ '/tags/' | append: path_type | append: tag | relative_url }}" class="{{ meta }}">{{ tag }}</a>
 				{% comment %}
 				{% if forloop.last == false -%}
 					<span class="visually-hidden">, </span>
@@ -44,20 +44,20 @@ layout: default
 	</p>
 </footer>
 
-{%- assign share = site.data.locals[site.lang].page.share -%}
+{%- assign share = site.data.navigation.page.share -%}
 {% assign btn_share = 'btn btn-link share-' -%}
 {% assign socials = \['Facebook', 'Twitter', 'LinkedIn'] -%}
 <article class="page-share mb-2">
 	<strong>
 		<i class="fa-sharp fa-solid fa-share-nodes" aria-hidden="true"></i> {{ share }}: 
 	</strong>
-	<button type="button" class="{{ 'facebook' | prepend: btn_share }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ socials[0] }}" aria-label="{{ socials[0] }} {{ share }}">
+	<button type="button" class="{{ socials[0] | downcase | prepend: btn_share }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ socials[0] }}" aria-label="{{ socials[0] }} {{ share }}">
 		<i class="fa-brands fa-square-facebook fa-2x text-primary" aria-hidden="true"></i>
 	</button>
-	<button type="button" class="{{ 'twitter' | prepend: btn_share }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ socials[1] }}" aria-label="{{ socials[1] }} {{ share }}">
+	<button type="button" class="{{ socials[1] | downcase | prepend: btn_share }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ socials[1] }}" aria-label="{{ socials[1] }} {{ share }}">
 		<i class="fa-brands fa-square-twitter fa-2x text-info" aria-hidden="true"></i>
 	</button>
-	<button type="button" class="{{ 'linkedin' | prepend: btn_share }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ socials[2] }}" aria-label="{{ socials[2] }} {{ share }}">
+	<button type="button" class="{{ socials[2] | downcase | prepend: btn_share }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ socials[2] }}" aria-label="{{ socials[2] }} {{ share }}">
 		<i class="fa-brands fa-linkedin fa-2x text-warning" aria-hidden="true"></i>
 	</button>
 </article>
@@ -67,22 +67,20 @@ layout: default
 	{%- assign paginate_class = 'btn btn-primary' -%}
 	{% if page.previous.url -%}
 		<a href="{{ page.previous.url | relative_url | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.previous.title }}" aria-description="{{ page.previous.title }}">
-			<i aria-hidden="true">&larr;</i> {{ site.data.locals[site.lang].page.prev_post }}
+			<i aria-hidden="true">&larr;</i> {{ site.data.navigation.page.prev_post }}
 		</a>
 	{% else -%}
-		{% comment %}<a href="#" class="{{ paginate_class }} disabled">{% endcomment %}
 		<span class="{{ paginate_class }} disabled">
-			<i aria-hidden="true">&larr;</i> {{ site.data.locals[site.lang].page.prev_post }}
+			<i aria-hidden="true">&larr;</i> {{ site.data.navigation.page.prev_post }}
 		</span>
 	{% endif -%}
 	{% if page.next.url -%}
 		<a href="{{ page.next.url | relative_url | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.next.title }}" aria-description="{{ page.next.title }}">
-			{{ site.data.locals[site.lang].page.next_post }} <i aria-hidden="true">&rarr;</i>
+			{{ site.data.navigation.page.next_post }} <i aria-hidden="true">&rarr;</i>
 		</a>
 	{% else -%}
-		{% comment %}<a href="#" class="{{ paginate_class }} disabled">{% endcomment %}
 		<span class="{{ paginate_class }} disabled">
-			{{ site.data.locals[site.lang].page.next_post }} <i aria-hidden="true">&rarr;</i>
+			{{ site.data.navigation.page.next_post }} <i aria-hidden="true">&rarr;</i>
 		</span>
 	{% endif -%}
 </nav>

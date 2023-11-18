@@ -8,9 +8,11 @@ e.g.
 {% assign posts = 포스트 목록 배열 %}
 {% include postgroup.html %}
 {% endcomment %}
+
 <article class="page-content">
 	<h3 id="{{ title }}">{{ title }}</h3>
-	{%- assign total_page = posts | size | divided_by: site.paginate | ceil -%}
+	{%- assign my_float = site.paginate | times: 1.0 -%}
+	{% assign total_page = posts | size | divided_by: my_float | ceil -%}
 	{% assign index = 1 -%}
 	{% assign count = 0 -%}
 	<div class="post-group" data-page="{{ index }}">
@@ -27,7 +29,7 @@ e.g.
 	</div>
 	{% if total_page > 1 -%}
 		<button type="button" class="btn btn-primary btn-more" data-page="2" aria-description="{{ title }}">
-			{{ site.data.locals[site.lang].page.more }} <i aria-hidden="true">&rarr;</i>
+			{{ site.data.navigation.page.more }} <i aria-hidden="true">&rarr;</i>
 		</button>
 	{% endif -%}
 </article>

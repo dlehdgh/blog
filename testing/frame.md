@@ -2,7 +2,6 @@
 layout: example
 title: 프레임
 category: testing
-excerpt:
 ---
 
 **frameset.html**

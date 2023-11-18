@@ -3,17 +3,13 @@ layout: default
 ---
 
 {{ content }}
-<p>page.url: {{ page.url}}</p>
-<article class="mb-5">
-	<h2>{{ site.data.locals[site.lang].navbar.posts }}</h2>
-	{%- for post in site.posts limit: 5 -%}
+
+<article class="page-content">
+	<h2>{{ site.data.navigation.names.posts }}</h2>
+	{% for post in site.posts limit: 5 -%}
 		{% include postlist.html post=post %}
-	{%- endfor -%}
-	{% assign postcount = site.posts | size -%}
-	{% if postcount == 0 -%}
-		<p>등록된 포스트가 없습니다.</p>
-	{% endif -%}
+	{% endfor -%}
 	<a href="{{ '/posts/' | relative_url }}" class="btn btn-primary">
-		{{ site.data.locals[site.lang].page.more }} <i aria-hidden="true">&rarr;</i>
+		{{ site.data.navigation.page.more }} <i aria-hidden="true">&rarr;</i>
 	</a>
 </article>

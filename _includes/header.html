@@ -7,7 +7,7 @@
 	{% else -%}
 		{% include breadcrumbs.html %}
 		{% assign page_name = page.url | remove_first: "/" | split: "/" | first -%}
-		<h2>{{ page.title | default: site.data.locals[site.lang].navbar[page_name] }}</h2>
+		<h2>{{ page.title | default: site.data.navigation.names[page_name] }}</h2>
 		{% if page.description -%}
 			<div class="subheading mb-3">{{ page.description }}</div>
 		{% endif -%}
@@ -15,7 +15,7 @@
 			<!-- author, updated of the post -->
 			<p>
 				<i class="fa fa-user text-primary" aria-hidden="true"></i>
-				<span aria-description="{{ site.data.locals[site.lang].page.author }}">{{ page.author | default: site.author }}</span>
+				<span aria-description="{{ site.data.navigation.page.author }}">{{ page.author | default: site.author }}</span>
 			</p>
 			<p>
 				<i class="fa-solid fa-calendar-days text-success" aria-hidden="true"></i>

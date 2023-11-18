@@ -2,7 +2,6 @@
 layout: example
 title: 표(table) - 표 안의 입력양식
 category: testing
-excerpt:
 ---
 
 ```html

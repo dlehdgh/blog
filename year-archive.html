@@ -6,14 +6,14 @@ permalink: /year-archive/
 {%- assign postsByYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' -%}
 <ul class="nav-skip">
 	{% for year in postsByYear %}
-		<li>
-			<a href="#{{ year.name }}" class="btn btn-primary">
-				<strong>
-					<i class="fa-solid fa-calendar" aria-hidden="true"></i> {{ year.name }}
-				</strong>
-				<span class="badge text-bg-light">{{ year.items | size }}</span>
-			</a>
-		</li>
+	<li>
+		<a href="#{{ year.name }}" class="btn btn-primary">
+			<strong>
+				<i class="fa-solid fa-calendar" aria-hidden="true"></i> {{ year.name }}
+			</strong>
+			<span class="badge text-bg-light">{{ year.items | size }}</span>
+		</a>
+	</li>
 	{% endfor -%}
 </ul>
 

@@ -1,23 +1,28 @@
 <nav aria-label="breadcrumb">
-	<ol class="breadcrumb d-flex justify-content-end">
+	<ol class="breadcrumb">
 		{%- assign crumbs = page.url | split: '/' -%}
-		{% assign navbar = site.data.locals[site.lang].navbar -%}
+		{% assign names = site.data.navigation.names -%}
 		<li class="breadcrumb-item">
-			<a href="{{ '/' | relative_url }}">{{ navbar.home | default: '홈' }}</a>
+			<a href="{{ '/' | relative_url }}">{{ names.home | default: '홈' }}</a>
 		</li>
 		{%- for crumb in crumbs offset: 1 -%}
 			{% if forloop.last -%}
 				<li class="breadcrumb-item active" aria-current="page">
-					{%- assign title = navbar[crumb] | default: crumb -%}
-					{{ page.title | default: title }}
+					{% assign path = page.path | split: '/' | first -%}
+					{% if path == '_posts' or path == 'testing' -%}
+						글읽기
+					{% else -%}
+						{% assign title = names[crumb] | default: crumb -%}
+						{{ page.title | default: title }}
+					{% endif -%}
 				</li>
 			{% else -%}
 				<li class="breadcrumb-item">
-					<a href="{{ site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}
-					{% for crumb in crumbs limit: crumb_limit %}
+					<a href="{{ site.baseurl }}{%- assign crumb_limit = forloop.index | plus: 1 -%}
+					{%- for crumb in crumbs limit: crumb_limit -%}
 						{{ crumb | append: '/' }}
-					{% endfor %}">
-						{{ navbar[crumb] | default: crumb | replace: '-', ' ' | remove: '.html' | capitalize }}
+					{%- endfor -%}">
+						{{ names[crumb] | default: crumb | replace: '-', ' ' | remove: '.html' | capitalize }}
 					</a>
 				</li>
 			{% endif -%}

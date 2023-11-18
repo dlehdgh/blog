@@ -4,26 +4,22 @@ layout: page
 
 {{ content }}
 
-<p>{{ site.data.locals[site.lang].page.total_posts }}: <strong class="text-primary">{{ site.categories[page.category] | size | default: '0' }}개</strong></p>
 {%- assign total_posts = site.categories[page.category] | size -%}
-{% if total_posts == 0 -%}
-	<p>게시글이 없습니다.</p>
-{% else -%}
-	{% assign my_float = site.paginate | times: 1.0 -%}
-	{% assign total_page = site.categories[page.category] | size | divided_by: my_float | ceil -%}
-	{% assign index = 1 -%}
-	{% assign count = 0 -%}
-	<div class="post-group" data-page="{{ index }}">
-	{% for post in site.categories[page.category] -%}
-		{% include postlist.html post=post %}
-		{% assign count = count | plus: 1 -%}
-		{% if count == site.paginate -%}
-			{% assign index = index | plus: 1 -%}
-			{% assign count = 0 -%}
-			</div>
-			<div class="post-group" data-page="{{ index }}">
-		{% endif -%}
-	{%- endfor -%}
-	</div>
-	{% include paginate.html total_page=total_page %}
-{%- endif -%}
+{% assign my_float = site.paginate | times: 1.0 -%}
+{% assign total_page = total_posts | divided_by: my_float | ceil -%}
+{% assign index = 1 -%}
+{% assign count = 0 -%}
+<p>{{ site.data.navigation.page.total_posts }}: <strong class="text-primary">{{ total_posts | default: '0' }}</strong></p>
+<div class="post-group" data-page="{{ index }}">
+{% for post in site.categories[page.category] -%}
+	{% include postlist.html post=post %}
+	{% assign count = count | plus: 1 -%}
+	{% if count == site.paginate -%}
+		{% assign index = index | plus: 1 -%}
+		{% assign count = 0 -%}
+		</div>
+		<div class="post-group" data-page="{{ index }}">
+	{% endif -%}
+{%- endfor -%}
+</div>
+{% include paginate.html total_page=total_page %}

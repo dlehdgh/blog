@@ -9,5 +9,32 @@ navbar:
     url: /categories/
   - name: tags
     url: /tags/
-  - name: testing
-    url: /testing/
+  - name: uatest
+    url: /uatest/
+
+skipnav:
+  main: 본문 바로가기
+  menu: 주메뉴 바로가기
+
+# url로 페이지를 구분하기 위해 navbar의 name 값과 일치하는 항목의 값을 출력.
+names:
+  home: 홈
+  about: 소개
+  posts: 포스트
+  year-archive: 연도 아카이브
+  categories: 카테고리
+  tags: 태그
+  testing: 접근성 테스트
+  search: 검색
+
+# 페이지에 출력할 텍스트를 수정할 대 여러 파일로 분리되어 있어 어디서 수정해야 하는지 찾기 어려우므로 한번에 수정할 수 있도록 함.
+page:
+  toc_title: 목차
+  author: 작성자
+  updated: 작성일
+  share: 공유
+  prev_post: 이전 글 
+  next_post: 다음 글
+  year: 연도 # 연도 아카이브의 바로가기 링크에 사용
+  total_posts: 총 게시물
+  more: 더보기

@@ -2,7 +2,6 @@
 layout: example
 title: figure와 이미지
 category: testing
-excerpt:
 ---
 
 ### figure와 이미지

@@ -2,7 +2,7 @@
 layout: page
 ---
 
-<p>{{ site.data.locals[site.lang].page.total_posts }}: <strong class="text-primary">{{ paginator.total_posts | default: '0' }}개</strong></p>
+<p>{{ site.data.navigation.page.total_posts }}: <strong class="text-primary">{{ paginator.total_posts | default: '0' }}</strong></p>
 {%- if paginator.total_posts == 0 -%}
 	<p>게시글이 없습니다.</p>
 {% else -%}

@@ -46,7 +46,7 @@ layout: default
 
 {%- assign share = site.data.navigation.page.share -%}
 {% assign btn_share = 'btn btn-link share-' -%}
-{% assign socials = \['Facebook', 'Twitter', 'LinkedIn'] -%}
+{% assign socials = "Facebook|Twitter|LinkedIn" | split: "|" -%}
 <article class="page-share mb-2">
 	<strong>
 		<i class="fa-sharp fa-solid fa-share-nodes" aria-hidden="true"></i> {{ share }}: 

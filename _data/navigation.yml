@@ -9,8 +9,8 @@ navbar:
     url: /categories/
   - name: tags
     url: /tags/
-  - name: uatest
-    url: /uatest/
+  - name: testing
+    url: /testing/
 
 skipnav:
   main: 본문 바로가기

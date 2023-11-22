@@ -12,14 +12,17 @@ Liquid는 Object, Tag, Filter 이렇게 3개의 카테고리로 분류 할 수 �
 
 ### Object
 
-liquid는 Object로 컨텐츠에 접근할 수 있다.
+Liquid는 Object로 컨텐츠에 접근할 수 있다.
 
-<p class"codeblock-label">example</p>
+<!-- <p class"codeblock-label">example</p> -->
 
-```
+{% raw %}
+```liquid
 {{ page.title }}
 Github 블로그 - 2. Jekyll liquid 문법
 ```
+{% endraw %}
+{: data-label="example"}
 
 ### Tag
 
@@ -27,38 +30,43 @@ Github 블로그 - 2. Jekyll liquid 문법
 
 코드를 그대로 보여주고 싶을 때는 다음과 같이 입력한다.
 
+{% raw %}
 ```liquid
 {% raw %}
 {{ page.title }}
 {% endraw %}
 ```
+{% endraw %}
 
 #### 변수
 
 변수를 선언하고 싶을 때는 `assign 변수명 = 값`을 입력하면 된다.
 
-<p class="codeblock-label">Input</p>
+{% raw %}
+```liquid
+{% assign name = "홍길동" %}
+{{ name }}님
+```
+{: data-label="Input"}
+{% endraw %}
 
 ```liquid
 {% assign name = "홍길동" %}
 {{ name }}님
 ```
-
-<p class="codeblock-label">Output</p>
-
-```
-홍길동님
-```
+{: data-label="Output"}
 
 #### 주석
 
 코드를 `{% comment %}`와 `{% endcomment %}`로 감싸주면 주석으로 처리가 된다.
 
+{% raw %}
 ```liquid
 {% comment %}
 주석 내용
 {% endcomment %}
 ```
+{% endraw %}
 
 #### 조건문(if/elsif/else, case/when)
 
@@ -68,6 +76,7 @@ Github 블로그 - 2. Jekyll liquid 문법
 
 `else`는 `if`와 `elsif`가 모두 거짓일 때 실행된다.
 
+{% raw %}
 ```liquid
 {% if page.title == "test" %}
 	Test 페이지입니다.
@@ -77,6 +86,7 @@ Github 블로그 - 2. Jekyll liquid 문법
 	기본 페이지입니다.
 {% endif %}
 ```
+{% endraw %}
 
 **case/when**
 
@@ -84,6 +94,7 @@ Github 블로그 - 2. Jekyll liquid 문법
 
 `else`는 if문과 마찬가지로 어떤 조건도 참이 아닐 때 실행된다.
 
+{% raw %}
 ```liquid
 {% case page.title %}
 	{% when "test" %}
@@ -94,13 +105,13 @@ Github 블로그 - 2. Jekyll liquid 문법
 		기본 페이지입니다.
 {% endcase %}
 ```
+{% endraw %}
 
 #### 반복문(for)
 
 for 반복문은 `for 변수 in 범위`와 같이 사용하면 되는데 여기서 변수는 범위의 각 항목의 값을 갖게 된다.
 
-<p class="codeblock-label">Input</p>
-
+{% raw %}
 ```liquid
 {% for i in (1..5) %}
 	{{ i }}
@@ -110,13 +121,18 @@ for 반복문은 `for 변수 in 범위`와 같이 사용하면 되는데 여기�
 	{{ i }}
 {% endfor %}
 ```
-
-<p class="codeblock-label">Output</p>
+{: data-label="Input"}
+{% endraw %}
 
 ```
-1 2 3 4 5 
-1 2 3
+{% for i in (1..5) -%}
+	{{ i }}
+{%- endfor %}
+{% for i in (1..5) limit: 3 -%}
+	{{ i }}
+{%- endfor %}
 ```
+{: data-label="Output"}
 
 위 for 반복문에서 `limit`는 반복 횟수를 제한한다.
 
@@ -143,5 +159,25 @@ Liquid 에서는 데이터를 가공하기 위한 여러가지 Filter를 제공�
 
 지금까지 liquid 문법에 대해 알아 보았다. liquid 문법에 대한 자세한 내용은 다음 링크를 참고한다.
 
+* [https://jekyllrb.com/docs/liquid/](https://jekyllrb.com/docs/liquid/){:target="_blank"}
 * [https://jekyllrb-ko.github.io/docs/liquid/](https://jekyllrb-ko.github.io/docs/liquid/){:target="_blank"}
 * [https://shopify.github.io/liquid/](https://shopify.github.io/liquid/){:target="_blank"}
+* [https://selosele.github.io/liquid/](https://shopify.github.io/liquid/){:target="_blank"}
+
+### 공백 제어
+
+Liquid를 사용하다 보면 태그의 앞뒤에 공백이 생기게 되는데 `-`를 붙이면 공백이 제거된다. 예를 들어 `{%-`와 `{{-`는 앞쪽 공백을 제거하고, `-%}`와 `-}}`는 뒤쪽 공백을 제거한다.
+
+{% raw %}
+```liquid
+<a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">홈</a>
+<a href="{{ '/' | relative_url }}" class="nav-link{%- if page.url == '/' -%} active{%- endif -%}">홈</a>
+```
+{: data-label="Input"}
+{% endraw %}
+
+```html
+<a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">홈</a>
+<a href="{{ '/' | relative_url }}" class="nav-link{%- if page.url == '/' -%} active{%- endif -%}">홈</a>
+```
+{: data-label="Output"}

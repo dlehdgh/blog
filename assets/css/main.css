@@ -176,9 +176,13 @@ code.highlighter-rouge {
 	max-width: 6rem;
 	max-height: 6rem;
 }
+#sideNav #navbarResponsive a.nav-link {
+	text-align: left;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
 
 /* Toc 목차 */
-/* test */
 .toc ul {
 	padding-left: 1.5rem;
 }
@@ -246,6 +250,10 @@ code.highlighter-rouge {
 .page-content > h5:not(:first-child) {
 	margin-top: 1rem;
 }
+.page-content ol li,
+.page-content ul li {
+	margin-bottom: 0.5rem;
+}
 /* 카테고리, 태그, 공유를 나타내는 제목에 여백 지정 */
 .page-meta .page-taxonomy strong,
 .page-share strong {
@@ -286,6 +294,9 @@ code.highlighter-rouge {
 		 */
 		background-image: url(https://source.unsplash.com/1600x900/?nature);
 		background-size: cover;
+	}
+	#sideNav .navbar-brand {
+		width: 100%;
 	}
 	#sideNav .navbar-brand,
 	#sideNav #navbarResponsive a.nav-link {

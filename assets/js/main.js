@@ -7,6 +7,18 @@ $(document).ready(() => {
 	// 코드의 도구 버튼 이벤트
 	$('.btn-run').click(codeRun);
 	$('.btn-copy').click(copyClip);
+	/**
+	 * 코드 라벨
+	 * 코드 라벨을 만들 경우 p 태그에 codeblock-label 클레스를 추가해 주면 되는데 HTML 태그를 수동으로 입력해줘야 하는 불편이 있다. 이러한 코드 라벨을 자동으로 생성하는 코드이다.
+	 * 마크다운에서 코드 블럭 다음 줄에 {: data-label="Label"}를 입력하면 '.highlighter-rouge'에 data-label 속성이 추가된 것을 확인할 수 있다. data-label 속성의 값으로 코드 라벨을 생성한다.
+	 */
+	$('.highlighter-rouge').each((i, el) => {
+		const label_class = 'codeblock-label';
+		let label = $(el).attr('data-label');
+		if(label != undefined && $(el).prev().hasClass(label_class) == false){
+			$(el).before(`<p class="${label_class}">${label}</p>`);
+		}
+	});
 
 	// 툴팁
 	const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
@@ -125,3 +137,29 @@ const codeRun = (event) => {
 		win.document.body.innerHTML = code;
 	}
 };
+
+// =======
+```python {id="python-print" class="blue large" data-filename="test.py"}
+import time
+```
+
+
+let highlightBlocks = document.querySelectorAll(".highlight");
+for(let i=0; i<highlightBlocks.length; i++){
+	var highlightBlock = highlightBlocks[i];
+
+	// get language data
+	var codes = highlightBlock.querySelectorAll("[data-lang]");
+	var lang = codes[0].getAttribute("data-lang");
+
+	// check if custom label is already made
+	if (highlightBlock.previousElementSibling.classList.contains("codeblock-label")) continue
+
+	// create label element
+	var label = document.createElement("p");
+	label.classList.add("codeblock-label");
+	label.innerHTML = lang;
+
+	// insert label
+	highlightBlock.parentNode.insertBefore(label, highlightBlock);
+}

@@ -51,14 +51,15 @@ Jekyll은 `_config.yml`의 설정 값과 파일의 머리말 등의 정보를 �
 
 Jekyll은 YAML 머리말 블록을 가진 모든 파일을 특별한 파일로 인식하여 처리한다.
 
-<p class="codeblock-label">example</p>
-
+{% raw %}
 ```liquid
 ---
 layout: post
 title: Welcom
 ---
 ```
+{: data-label="example"}
+{% endraw %}
 
 머리말에는 사전 정의된 변수도 사용할 수 있고, 자신만의 고유 변수를 정의하는 것도 가능하다.
 
@@ -80,6 +81,7 @@ title: Welcom
 
 <p clas="codeblock-label">예제 1</p>
 
+{% raw %}
 ```liquid
 ---
 layout: posts
@@ -89,9 +91,11 @@ category: "blog"
 tags: [Github, Blog]
 ---
 ```
+{% endraw %}
 
 <p clas="codeblock-label">예제 2</p>
 
+{% raw %}
 ```liquid
 ---
 layout: posts
@@ -101,6 +105,7 @@ categories: [blog]
 tags: [Github, Blog]
 ---
 ```
+{% endraw %}
 
 <p clas="codeblock-label">예제 3</p>
 
@@ -116,5 +121,6 @@ tags:
   - Blog
 ---
 ```
+{% endraw %}
 
 > 나는 **예제 3**의 방식으로는 써보지 않았지만 Github에 올라온 Jekyll 테마들을 보면 **예제 3**과 같은 형식을 사용했다.

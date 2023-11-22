@@ -9,26 +9,10 @@
 <!-- Simple-Jekyll-Search -->
 <script src="{{ '/assets/js/simple-jekyll-search.min.js' | relative_url }}"></script>
 <script type="text/javascript">
-	SimpleJekyllSearch({
-		searchInput: document.getElementById('search-input'),
-		resultsContainer: document.getElementById('results-container'),
-		json: "{{ '/search.json' | relative_url }}",
-		searchResultTemplate: `<li class="list-group-item">
-	<i class="fa-solid fa-file-lines fa-lg" aria-hidden="true"></i>
-	<a href="{url}" class="text-decoration-none">{title}</a>
-	<time>{date}</time>
-</li>`,
-		noResultsText: '검색결과가 없습니다.',
-		limit: 10000,
-		fuzzy: false,
-		exclude: ['Welcome']
-	});
-</script>
-<script type="text/javascript">
 	let sjs = SimpleJekyllSearch({
 		searchInput: document.getElementById('search-input'),
 		resultsContainer: document.getElementById('results-container'),
-		json: {{ '/search.json' | relative_url }},
+		json: "{{ '/search.json' | relative_url }}",
 		searchResultTemplate: `<li class="list-group-item">
 	<i class="fa-solid fa-file-lines fa-lg" aria-hidden="true"></i>
 	<a href="{url}">{title}</a>

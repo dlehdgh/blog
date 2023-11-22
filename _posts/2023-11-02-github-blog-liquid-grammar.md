@@ -28,13 +28,14 @@ Github 블로그 - 2. Jekyll liquid 문법
 
 코드를 그대로 보여주고 싶을 때는 다음과 같이 입력한다.
 
-{% raw %}
 ```liquid
-{% raw %}
+{% raw %}{% raw %}{% endraw %}
+{%- raw -%}
 {{ page.title }}
 {% endraw %}
+{%- assign temp = "{%" -%}
+{{ temp }} endraw %}
 ```
-{% endraw %}
 
 #### 변수
 
@@ -56,7 +57,9 @@ Github 블로그 - 2. Jekyll liquid 문법
 
 #### 주석
 
+{% raw %}
 코드를 `{% comment %}`와 `{% endcomment %}`로 감싸주면 주석으로 처리가 된다.
+{% endraw %}
 
 {% raw %}
 ```liquid
@@ -147,7 +150,7 @@ Liquid 에서는 데이터를 가공하기 위한 여러가지 Filter를 제공�
 |date_to_xmlschema|날짜를 XML 스키마(ISO 8601) 형식으로 변환한다.|
 |date_to_string|날짜를 짧은 형식으로 변환한다.|
 |where|배열 안에서 특정 키와 값을 가진 객체들을 선택한다.|
-|where_exp|배열 안에서 표현식이 참인 객체들을 선택한다.<br>`{{ site.pages | where_exp: "item", "item.category == 'test'" }}`|
+|where_exp|배열 안에서 표현식이 참인 객체들을 선택한다.<br>{% raw %}`{{ site.pages | where_exp: "item", "item.category == 'test'" }}`{% endraw %}|
 |escape|문자열을 이스케이프 한다. 일부 특수문자를 엔티티 코드로 변환한다.|
 |markdownify|마크다운 형식 문자열을 HTML 로 변환한다.|
 |sort|배열을 정렬한다. 해시를 위한 추가 전달인자 1. 프로퍼티 이름 2. nils 순서(first, last).|
@@ -164,7 +167,9 @@ Liquid 에서는 데이터를 가공하기 위한 여러가지 Filter를 제공�
 
 ### 공백 제어
 
+{% raw %}
 Liquid를 사용하다 보면 태그의 앞뒤에 공백이 생기게 되는데 `-`를 붙이면 공백이 제거된다. 예를 들어 `{%-`와 `{{-`는 앞쪽 공백을 제거하고, `-%}`와 `-}}`는 뒤쪽 공백을 제거한다.
+{% endraw %}
 
 {% raw %}
 ```liquid

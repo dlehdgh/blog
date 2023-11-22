@@ -14,15 +14,13 @@ Liquid는 Object, Tag, Filter 이렇게 3개의 카테고리로 분류 할 수 �
 
 Liquid는 Object로 컨텐츠에 접근할 수 있다.
 
-<!-- <p class"codeblock-label">example</p> -->
-
 {% raw %}
 ```liquid
 {{ page.title }}
 Github 블로그 - 2. Jekyll liquid 문법
 ```
-{% endraw %}
 {: data-label="example"}
+{% endraw %}
 
 ### Tag
 

@@ -10,13 +10,13 @@ date: 2023-11-06 15:10
 
 ### 테마 설치
 
-지킬은 많은 양의 테마를 오픈 소스로 제공하고 있다. 아래 사이트에 접속하면 무료로 제공되는 테마를 볼 수 있다.
+Jekyll은 많은 양의 테마를 오픈 소스로 제공하고 있다. 아래 사이트에 접속하면 무료로 제공되는 테마를 미리 보거나 다운로드 받을 수 있다.
 
 * [http://jekyllthemes.org/](http://jekyllthemes.org/){:target="_blank"}
 * [https://jekyllthemes.io/free](https://jekyllthemes.io/free){:target="_blank"}
 * [http://themes.jekyllrc.org/](http://themes.jekyllrc.org/){:target="_blank"}
 
-> 나는 테마를 적용하려고 했으나 구름IDE로 개발하다 보니 Github와 연동이 되지 않아 테마가 정상적으로 동작하지 않는 문제가 발생해 기본적으로 제공되는 테마를 사용했다.
+> 나는 테마를 적용하려고 했으나 구름IDE로 개발 시 Github와 연동하는 기능을 제공하는지 몰라서 테마가 정상적으로 동작하지 않는 문제가 발생해 기본적으로 제공되는 테마를 사용했다.
 
 테마를 설치하는 방법은 두가지가 있다.
 
@@ -37,7 +37,7 @@ date: 2023-11-06 15:10
 
 * 다운로드 : [https://startbootstrap.com/theme/resume](https://startbootstrap.com/theme/resume){:target="_blank"}
 
-![Start Bootstrap - Resume 테마 스크린샷](https://camo.githubusercontent.com/881340bcf6fb402410fc7fe0f6f4339c5bd80d377ee7b38743211407a1b8f291/68747470733a2f2f6173736574732e7374617274626f6f7473747261702e636f6d2f696d672f73637265656e73686f74732f7468656d65732f726573756d652e706e67)
+![Start Bootstrap - Resume 테마 스크린샷](https://camo.githubusercontent.com/881340bcf6fb402410fc7fe0f6f4339c5bd80d377ee7b38743211407a1b8f291/68747470733a2f2f6173736574732e7374617274626f6f7473747261702e636f6d2f696d672f73637265656e73686f74732f7468656d65732f726573756d652e706e67){: style="width: 100%;"}
 
 **Start Bootstrap - Resume** 테마의 폴더 구조는 다음과 같다.
 

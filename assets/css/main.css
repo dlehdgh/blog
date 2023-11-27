@@ -68,6 +68,10 @@
 	--bs-pagination-disabled-bg: var(--bs-secondary-bg);
 	--bs-pagination-disabled-border-color: var(--bs-border-color);
 }
+.social-icons .social-icon:hover,
+.social-icons .social-icon:focus {
+	background-color: var(--bs-primary);
+}
 
 
 blockquote {
@@ -272,6 +276,13 @@ code.highlighter-rouge {
 }
 .page-share .btn {
 	padding: 0;
+}
+
+/* 검색 모달 */
+#results-container a:hover,
+#results-container a:focus {
+	color: var(--bs-light);
+	background-color: var(--bs-primary);
 }
 
 /* 큰 화면일 때 적용하는 CSS */

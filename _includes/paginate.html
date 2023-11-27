@@ -17,18 +17,6 @@
 		<li class="page-item">
 			<span class="{{ page_link }} disabled">Page: <span class="page-current" aria-current="page">1</span> / <span class="page-total">{{ include.total_page }}</span></span>
 		</li>
-		{% comment %}
-		<!-- Page Number List -->
-		{% for i in (1..include.total_page) -%}
-			<li class="page-item">
-			{% if i == 1 -%}
-				<button type="button" class="{{ page_link }} active" data-page="{{ i }}" aria-current="page" disabled>{{ i }}</button>
-			{% else -%}
-				<button type="button" class="{{ page_link }}" data-page="{{ i }}">{{ i }}</button>
-			{% endif -%}
-			</li>
-		{% endfor -%}
-		{% endcomment %}
 		<li class="page-item">
 			<button type="button" class="{{ page_link }} page-next" aria-label="Next">
 				<i aria-hidden="true">»</i>

@@ -35,7 +35,7 @@ Jekyll은 `_config.yml`의 설정 값과 파일의 머리말 등의 정보를 �
 * `page.content` : 페이지의 컨텐츠.
 * `page.title` : 페이지의 제목으로 페이지의 머리말에 입력한 `title` 값을 가져온다.
 * `page.excerpt` : 문서의 발췌 부분이다.
-* `page.url` : 포스트 URL. 예시, `/2008/12/14/my-post/`|
+* `page.url` : 포스트 URL. 예시, `/2008/12/14/my-post/`
 * `page.date` : 포스트에 할당된 날짜. 머리말에 입력한 날짜를 가져온다. 예시, 2008-12-14 10:30:00 +0900
 * `page.categories` : 포스트가 속한 카테고리들의 목록.
 * `page.tags` : 포스트의 태그 목록.
@@ -79,8 +79,6 @@ title: Welcom
 * `category`, `categories` : 포스트의 카테고리를 지정한다.
 * `tags` : 포스트의 태그를 지정한다.
 
-<p clas="codeblock-label">예제 1</p>
-
 {% raw %}
 ```liquid
 ---
@@ -91,11 +89,8 @@ category: "blog"
 tags: [Github, Blog]
 ---
 ```
-{% endraw %}
+{: data-label="예제 1"}
 
-<p clas="codeblock-label">예제 2</p>
-
-{% raw %}
 ```liquid
 ---
 layout: posts
@@ -105,9 +100,7 @@ categories: [blog]
 tags: [Github, Blog]
 ---
 ```
-{% endraw %}
-
-<p clas="codeblock-label">예제 3</p>
+{: data-label="예제 2"}
 
 ```liquid
 ---
@@ -121,6 +114,7 @@ tags:
   - Blog
 ---
 ```
+{: data-label="예제 3"}
 {% endraw %}
 
-> 나는 **예제 3**의 방식으로는 써보지 않았지만 Github에 올라온 Jekyll 테마들을 보면 **예제 3**과 같은 형식을 사용했다.
+> 나는 **예제 3**의 방식으로는 써보지 않았지만 Github에 올라온 Jekyll 테마들을 보면 **예제 3**과 같은 형식을 사용했다. 자신이 사용하기 편한 방식으로 사용하면 된다.

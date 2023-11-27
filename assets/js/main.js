@@ -38,6 +38,7 @@ $(document).ready(() => {
 			$(this).parent().find(`${groupEl}[data-page="${page}"]`).show().find('a').eq(0).focus();
 		});
 		// 페이지 번호의 이벤트
+		// 첫번째 페이지와 마지막 페이지로 이동
 		paginateEl.find('.page-first, .page-last').click(function(){
 			let page = Number($(this).attr('data-page'));
 			pageChange(page);
@@ -84,8 +85,9 @@ $(document).ready(() => {
 
 // 페이징 처리 시 다른 페이지로 전환
 const pageChange = (page) => {
-	let total_page = Number(paginateEl.find('.page-total').text());
+	let total_page = $(groupEl).length;
 	if(page < 1 || page > total_page) return false;
+	console.log('page:', page, 'total_page', total_page)
 	if(total_page == 1){// total page is 1
 		paginateEl.find('.page-first, .page-last, .page-prev, .page-next').addClass('disabled').attr('disabled', true);
 	}else if(page == 1){ // first

@@ -14,13 +14,11 @@ Liquid는 Object, Tag, Filter 이렇게 3개의 카테고리로 분류 할 수 �
 
 Liquid는 Object로 컨텐츠에 접근할 수 있다.
 
-{% raw %}
 ```liquid
+{% raw %}{{ page.title }}{% endraw %}
 {{ page.title }}
-Github 블로그 - 2. Jekyll liquid 문법
 ```
 {: data-label="example"}
-{% endraw %}
 
 ### Tag
 
@@ -50,7 +48,7 @@ Github 블로그 - 2. Jekyll liquid 문법
 {% endraw %}
 
 ```liquid
-{% assign name = "홍길동" %}
+{% assign name = "홍길동" -%}
 {{ name }}님
 ```
 {: data-label="Output"}
@@ -69,9 +67,9 @@ Github 블로그 - 2. Jekyll liquid 문법
 ```
 {% endraw %}
 
-#### 조건문(if/elsif/else, case/when)
+#### 조건문
 
-**if/elsif/else**
+##### if/elsif/else
 
 `if`는 조건이 참이면 실행되고 조건이 거짓이면 실행되지 않는다. 조건이 두 가지 이상일 때 `if`와 `elsif`를 사용해 조건에 따라 다른 결과를 보여줄 수 있다.
 
@@ -89,7 +87,7 @@ Github 블로그 - 2. Jekyll liquid 문법
 ```
 {% endraw %}
 
-**case/when**
+##### case/when
 
 `case`로 어떤 변수의 값을 비교할 것인지 지정하고 `when`으로 값을 지정해 참이면 실행된다.
 
@@ -110,7 +108,7 @@ Github 블로그 - 2. Jekyll liquid 문법
 
 #### 반복문(for)
 
-for 반복문은 `for 변수 in 범위`와 같이 사용하면 되는데 여기서 변수는 범위의 각 항목의 값을 갖게 된다.
+for 반복문은 `for 변수 in 범위`{: .text-warning}와 같이 사용하면 되는데 여기서 변수는 범위의 각 항목의 값을 갖게 된다.
 
 {% raw %}
 ```liquid
@@ -145,25 +143,19 @@ Liquid 에서는 데이터를 가공하기 위한 여러가지 Filter를 제공�
 
 |필터|설명|
 |---|----|
-|relative_url|입력값 앞에 `baseurl` 값을 추가한다. 사이트가 최상위 경로가 아닌 하위 경로에서 호스팅 될 경우 유용하다.
-|absolute_url|입력값 앞에 url 과 baseurl 값을 추가한다.|
-|date_to_xmlschema|날짜를 XML 스키마(ISO 8601) 형식으로 변환한다.|
-|date_to_string|날짜를 짧은 형식으로 변환한다.|
-|where|배열 안에서 특정 키와 값을 가진 객체들을 선택한다.|
-|where_exp|배열 안에서 표현식이 참인 객체들을 선택한다.<br>{% raw %}`{{ site.pages | where_exp: "item", "item.category == 'test'" }}`{% endraw %}|
-|escape|문자열을 이스케이프 한다. 일부 특수문자를 엔티티 코드로 변환한다.|
-|markdownify|마크다운 형식 문자열을 HTML 로 변환한다.|
-|sort|배열을 정렬한다. 해시를 위한 추가 전달인자 1. 프로퍼티 이름 2. nils 순서(first, last).|
-|inspect|디버깅을 위해 객체를 문자열로 표시한다.|
+|`relative_url`|입력값 앞에 `baseurl` 값을 추가한다. 사이트가 최상위 경로가 아닌 하위 경로에서 호스팅 될 경우 유용하다.
+|`absolute_url`|입력값 앞에 url 과 baseurl 값을 추가한다.|
+|`date_to_xmlschema`|날짜를 XML 스키마(ISO 8601) 형식으로 변환한다.|
+|`date_to_string`|날짜를 짧은 형식으로 변환한다.|
+|`where`|배열 안에서 특정 키와 값을 가진 객체들을 선택한다.|
+|`where_exp`|배열 안에서 표현식이 참인 객체들을 선택한다.<br>{% raw %}`{{ site.pages | where_exp: "item", "item.category == 'test'" }}`{: .text-warning}{% endraw %}|
+|`escape`|문자열을 이스케이프 한다. 일부 특수문자를 엔티티 코드로 변환한다.|
+|`markdownify`|마크다운 형식 문자열을 HTML 로 변환한다.|
+|`sort`|배열을 정렬한다. 해시를 위한 추가 전달인자 1. 프로퍼티 이름 2. nils 순서(first, last).|
+|`inspect`|디버깅을 위해 객체를 문자열로 표시한다.|
+{: .table.table-secondary.table-bordered}
 
-내가 자주 사용했던 Filter에 대해 설명했다.
-
-지금까지 liquid 문법에 대해 알아 보았다. liquid 문법에 대한 자세한 내용은 다음 링크를 참고한다.
-
-* [https://jekyllrb.com/docs/liquid/](https://jekyllrb.com/docs/liquid/){:target="_blank"}
-* [https://jekyllrb-ko.github.io/docs/liquid/](https://jekyllrb-ko.github.io/docs/liquid/){:target="_blank"}
-* [https://shopify.github.io/liquid/](https://shopify.github.io/liquid/){:target="_blank"}
-* [https://selosele.github.io/liquid/](https://shopify.github.io/liquid/){:target="_blank"}
+내가 자주 사용했던 Filter에 대해 설명했다. Filter에 대한 더 자세한 내용은 **마치며**에 있는 링크들을 참고한다.
 
 ### 공백 제어
 
@@ -173,14 +165,47 @@ Liquid를 사용하다 보면 태그의 앞뒤에 공백이 생기게 되는데 
 
 {% raw %}
 ```liquid
-<a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">홈</a>
-<a href="{{ '/' | relative_url }}" class="nav-link{%- if page.url == '/' -%} active{%- endif -%}">홈</a>
+{% assign first_page = 1 %}
+{% assign last_page = 5 %}
+<ul class="pagination">
+	{% for i in (first_page..last_page) %}
+		<li>{{ i }}</li>
+	{% endfor %}
+</ul>
+{% assign first_page = 1 -%}
+{% assign last_page = 5 -%}
+<ul class="pagination">
+	{% for i in (first_page..last_page) -%}
+		<li>{{ i }}</li>
+	{% endfor -%}
+</ul>
 ```
 {: data-label="Input"}
 {% endraw %}
 
 ```html
-<a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">홈</a>
-<a href="{{ '/' | relative_url }}" class="nav-link{%- if page.url == '/' -%} active{%- endif -%}">홈</a>
+{% assign first_page = 1 %}
+{% assign last_page = 5 %}
+<ul class="pagination">
+	{% for i in (first_page..last_page) %}
+		<li>{{ i }}</li>
+	{% endfor %}
+</ul>
+{% assign first_page = 1 -%}
+{% assign last_page = 5 -%}
+<ul class="pagination">
+	{% for i in (first_page..last_page) -%}
+		<li>{{ i }}</li>
+	{% endfor -%}
+</ul>
 ```
 {: data-label="Output"}
+
+### 마치며
+
+지금까지 Liquid 문법에 대해 알아 보았는데 Liquid 문법에 대한 자세한 내용은 다음 링크를 참고한다.
+
+* [https://jekyllrb.com/docs/liquid/](https://jekyllrb.com/docs/liquid/){:target="_blank"}
+* [https://jekyllrb-ko.github.io/docs/liquid/](https://jekyllrb-ko.github.io/docs/liquid/){:target="_blank"} - 한국어 번역본
+* [https://shopify.github.io/liquid/](https://shopify.github.io/liquid/){:target="_blank"}
+* [https://selosele.github.io/liquid/](https://shopify.github.io/liquid/){:target="_blank"} - 한국어 번역본

@@ -22,7 +22,7 @@ title: Accessibility
 email: dlehdgh2@naver.com
 description: >- # "baseurl:"이 나올 때까지 줄 바꿈을 무시함
   Web Accessibility Testing Page
-author: addmin
+author: dlehdgh
 baseurl: "/blog" # 사이트의 하위 경로, e.g. /blog
 url: "https://dlehdgh.github.io" # 사이트의 기본 호스트 이름 및 프로토콜, e.g. http://example.com
 permalink: /:categories/:title/ # 포스트 주소 e.g. /:categories/:year/:month/:day/:title:output_ext
@@ -30,6 +30,12 @@ permalink: /:categories/:title/ # 포스트 주소 e.g. /:categories/:year/:mont
 # 날짜 형식 지정(년.월.일 시:분:초 AM/PM)
 date_format: "%Y.%m.%d"
 date_time_format: "%Y.%m.%d %I:%M"
+
+# Github Utterances 댓글 설정
+utterances:
+  repo: dlehdgh/blog # 댓글을 추가할 저장소
+  issue-term: pathname # 댓글 추가 시 issue의 제목 유형
+  theme: github-dark-orange # 댓글 테마
 
 # twitter_username: jekyllrb
 github_username:  dlehdgh

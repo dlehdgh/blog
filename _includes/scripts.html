@@ -13,11 +13,14 @@
 		searchInput: document.getElementById('search-input'),
 		resultsContainer: document.getElementById('results-container'),
 		json: "{{ '/search.json' | relative_url }}",
-		searchResultTemplate: `<li class="list-group-item">
+		/* searchResultTemplate: `<li class="list-group-item">
 	<i class="fa-solid fa-file-lines fa-lg" aria-hidden="true"></i>
 	<a href="{url}">{title}</a>
 	<time>{date}</time>
-</li>`,
+</li>`, */
+		searchResultTemplate: `<a href="{url}" class="list-group-item list-group-item-action">
+	<i class="fa-regular fa-file" aria-hidden="true"></i> {title}
+</a>`,
 		noResultsText: '<li class="list-group-item">검색결과가 없습니다.</li>',
 		limit: 100, // 페이지에 렌더링되는 게시물 수를 제한
 		fuzzy: false,

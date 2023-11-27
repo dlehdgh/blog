@@ -10,7 +10,7 @@ layout: default
 	{% for post in site.posts limit: 5 -%}
 		{% include postlist.html post=post %}
 	{% endfor -%}
-	<a href="{{ '/posts/' | relative_url }}" class="btn btn-primary">
+	<a href="{{ site.paginate_path | replace_first: '/', '' | split: '/' | first | prepend: '/' | relative_url }}/" class="btn btn-primary">
 		{{ site.data.navigation.page.more }} <i aria-hidden="true">&rarr;</i>
 	</a>
 </article>

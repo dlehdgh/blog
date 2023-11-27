@@ -3,19 +3,15 @@ layout: page
 ---
 
 <p>{{ site.data.navigation.page.total_posts }}: <strong class="text-primary">{{ paginator.total_posts | default: '0' }}</strong></p>
-{%- if paginator.total_posts == 0 -%}
-	<p>게시글이 없습니다.</p>
-{% else -%}
-	{% for post in paginator.posts -%}
-		{% include postlist.html post=post %}
-	{% endfor -%}
-{% endif -%}
+{% for post in paginator.posts -%}
+	{% include postlist.html post=post %}
+{% endfor %}
 
 <!-- Pagination -->
 <ul class="pagination">
 	{%- assign page_link = "page-link" -%}
 	{% assign first_page = 1 -%}
-	{% assign last_page = site.paginate_size-%}
+	{% assign last_page = site.paginate_size -%}
 	{% if paginator.page > last_page -%}
 		{% assign first_page = paginator.page | minus: 1 | divided_by: site.paginate_size | floor | times: site.paginate_size | plus: 1 -%}
 		{% assign last_page = first_page | plus: site.paginate_size -%}
@@ -24,7 +20,7 @@ layout: page
 		{% assign last_page = paginator.total_pages -%}
 	{%- endif -%}
 	<li class="page-item">
-		{%- assign first_path = '/posts/' | relative_url -%}
+		{%- assign first_path = site.paginate_path | replace_first: '/', '' | split: '/' | first | prepend: '/' | append: '/' | relative_url -%}
 		{% if paginator.previous_page -%}
 			<a href="{{ first_path }}" class="{{ page_link }}">First</a>
 		{% else -%}
@@ -33,7 +29,7 @@ layout: page
 	</li>
 	<li class="page-item">
 		{% if paginator.previous_page -%}
-			<a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="{{ page_link }}" aria-label="Previous">
+			<a href="{{ paginator.previous_page_path | relative_url }}" class="{{ page_link }}" aria-label="Previous">
 				<i aria-hidden="true">«</i>
 			</a>
 		{% else -%}
@@ -42,7 +38,7 @@ layout: page
 			</span>
 		{% endif -%}
 	</li>
-	{% for i in (1..paginator.total_pages) -%}
+	{% for i in (first_page..last_page) -%}
 		<li class="page-item">
 		{% if i == paginator.page -%}
 			<span class="{{ page_link }} active" aria-current="page">{{ i }}</span>
@@ -54,8 +50,8 @@ layout: page
 		</li>
 	{%- endfor -%}
 	<li class="page-item">
-		{%- if paginator.next_page -%}
-			<a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="{{ page_link }}" aria-label="Next">
+		{% if paginator.next_page -%}
+			<a href="{{ paginator.next_page_path | relative_url }}" class="{{ page_link }}" aria-label="Next">
 				<i aria-hidden="true">»</i>
 			</a>
 		{% else -%}
@@ -70,6 +66,6 @@ layout: page
 			<a href="{{ last_path }}" class="{{ page_link }}">Last</a>
 		{% else -%}
 			<span class="{{ page_link }} disabled">Last</span>
-		{% endif -%}
+		{%- endif -%}
 	</li>
 </ul>

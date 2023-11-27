@@ -49,8 +49,7 @@ last_modified_at: 수정일
 
 <script>
 	window.onload = () => {
-		let today = today();
-		$('#today').val(today);
+		$('#today').val(getToday());
 		$('#create-head').click(() => {
 			let categories = [];
 			$('.category:checked').each((i, el) => {
@@ -89,7 +88,7 @@ date: ${$('#today').val()}
 		});
 		return str;
 	};
-	const today = () => {
+	const getToday = () => {
 		// date: 2022-11-14 08:30
 		let date = new Date();
 		let year = date.getFullYear(4);

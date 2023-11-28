@@ -120,11 +120,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
 	font-size: 0.75rem;
 	padding: 0.25rem 0.75rem;
 	margin-bottom: 0;
-	border: 1px solid #ccd6e0;
+	/* border: 1px solid #ccd6e0; */
 	border-bottom-width: 0;
 	border-top-left-radius: var(--border-radius);
 	border-top-right-radius: var(--border-radius);
-	background-color: #e1e7ef;
+	/* background-color: #e1e7ef; */
+	color: var(--bs-dark);
+	background-color: var(--bs-secondary);
 }
 .codeblock-label + .highlighter-rouge .highlight {
 	border-top-left-radius: 0;
@@ -141,12 +143,11 @@ pre.highlight {
 	padding: 1rem;
 	margin: 0;
 }
-/* 코드 복사 도구 */
+/* 코드 도구 */
 .highlight-tools {
 	position: absolute;
 	top: 0;
 	right: 0;
-	/* float: right; */
 	padding: 0.25rem;
 	z-index: 9999;
 }
@@ -165,12 +166,12 @@ li > .highlighter-rouge:last-child {
 	margin-bottom: 0;
 }
 /* 인라인 코드 블럭 */
-code.highlighter-rouge {
+/* code.highlighter-rouge {
 	color: #93a1a1;
 	background-color: #002b36;
 	border-radius: 5px;
 	padding: 0.25rem;
-}
+} */
 
 /* 사이드바 */
 #sideNav .navbar-brand span {
@@ -191,7 +192,8 @@ code.highlighter-rouge {
 	padding-left: 1.5rem;
 }
 .toc > ul {
-	padding-left: 0;
+	/* li:before의 margin-left를 감소한 만큼 padding-left를 더해줘야 함 */
+	padding-left: 1rem;
 	margin: 1rem;
 }
 .toc ul li {
@@ -203,6 +205,7 @@ code.highlighter-rouge {
 	font-family: "Font Awesome 6 Free";
 	font-size: 0.75rem;
 	font-weight: 900;
+	margin-left: -1rem;
 }
 .toc ul li a {
 	color: var(--bs-gray-700);

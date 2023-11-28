@@ -63,27 +63,5 @@ layout: default
 </article>
 <hr>
 
-<nav class="pagination d-flex justify-content-between">
-	{%- assign paginate_class = 'btn btn-primary' -%}
-	{% if page.previous.url -%}
-		<a href="{{ page.previous.url | relative_url | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.previous.title }}" aria-description="{{ page.previous.title }}">
-			<i aria-hidden="true">&larr;</i> {{ site.data.navigation.page.prev_post }}
-		</a>
-	{% else -%}
-		<span class="{{ paginate_class }} disabled">
-			<i aria-hidden="true">&larr;</i> {{ site.data.navigation.page.prev_post }}
-		</span>
-	{% endif -%}
-	{% if page.next.url -%}
-		<a href="{{ page.next.url | relative_url | replace: '//', '/' }}" class="{{ paginate_class }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ page.next.title }}" aria-description="{{ page.next.title }}">
-			{{ site.data.navigation.page.next_post }} <i aria-hidden="true">&rarr;</i>
-		</a>
-	{% else -%}
-		<span class="{{ paginate_class }} disabled">
-			{{ site.data.navigation.page.next_post }} <i aria-hidden="true">&rarr;</i>
-		</span>
-	{% endif -%}
-</nav>
-<hr>
-
+{% include post_pagination.html %}
 {% include utterances.html %}

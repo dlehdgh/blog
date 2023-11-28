@@ -7,6 +7,8 @@ e.g.
 {% assign title = 포스트 그룹의 제목 %}
 {% assign posts = 포스트 목록 배열 %}
 {% include postgroup.html %}
+* id에 공백이 있으면 동작이 정상적으로 될지 테스트 필요
+title | uri_escape
 {% endcomment %}
 
 <article class="page-content">

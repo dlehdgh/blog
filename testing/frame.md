@@ -1,5 +1,5 @@
 ---
-layout: example
+layout: single-docs
 title: 프레임
 category: testing
 ---

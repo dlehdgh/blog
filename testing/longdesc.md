@@ -1,5 +1,5 @@
 ---
-layout: example
+layout: single-docs
 title: 이미지와 longdesc 속성
 category: testing
 ---

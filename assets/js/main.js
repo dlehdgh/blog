@@ -33,7 +33,7 @@ $(document).ready(() => {
 			if(page == $(this).parent().find(groupEl).length){
 				$(this).attr('disabled', true);
 			}else{
-				$(this).attr('data-page', next);
+				$(this).attr('data-page', page);
 			}
 			$(this).parent().find(`${groupEl}[data-page="${page}"]`).show().find('a').eq(0).focus();
 		});

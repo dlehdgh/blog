@@ -1,5 +1,5 @@
 ---
-layout: example
+layout: single-docs
 title: 표(table) - 표 안의 문장과 목록
 category: testing
 ---

@@ -22,19 +22,23 @@ layout: page
 	<li class="page-item">
 		{%- assign first_path = site.paginate_path | replace_first: '/', '' | split: '/' | first | prepend: '/' | append: '/' | relative_url -%}
 		{% if paginator.previous_page -%}
-			<a href="{{ first_path }}" class="{{ page_link }}">First</a>
+			<a href="{{ first_path }}" class="{{ page_link }}" aria-label="{{ site.data.navigation.page.pagination_first | default: 'First' }}">
+				<i class="fa fa-angles-left" aria-hidden="true"></i>
+			</a>
 		{% else -%}
-			<span class="{{ page_link }} disabled">First</span>
+			<span class="{{ page_link }} disabled" aria-label="{{ site.data.navigation.page.pagination_first | default: 'First' }}">
+				<i class="fa fa-angles-left" aria-hidden="true"></i>
+			</span>
 		{%- endif -%}
 	</li>
 	<li class="page-item">
 		{% if paginator.previous_page -%}
-			<a href="{{ paginator.previous_page_path | relative_url }}" class="{{ page_link }}" aria-label="Previous">
-				<i aria-hidden="true">«</i>
+			<a href="{{ paginator.previous_page_path | relative_url }}" class="{{ page_link }}" aria-label="{{ site.data.navigation.page.pagination_previous | default: 'Previous' }}">
+				<i class="fas fa-angle-left" aria-hidden="true"></i>
 			</a>
 		{% else -%}
-			<span class="{{ page_link }} disabled" aria-label="Previous">
-				<i aria-hidden="true">«</i>
+			<span class="{{ page_link }} disabled" aria-label="{{ site.data.navigation.page.pagination_previous | default: 'Previous' }}">
+				<i class="fas fa-angle-left" aria-hidden="true"></i>
 			</span>
 		{% endif -%}
 	</li>
@@ -51,21 +55,25 @@ layout: page
 	{%- endfor -%}
 	<li class="page-item">
 		{% if paginator.next_page -%}
-			<a href="{{ paginator.next_page_path | relative_url }}" class="{{ page_link }}" aria-label="Next">
-				<i aria-hidden="true">»</i>
+			<a href="{{ paginator.next_page_path | relative_url }}" class="{{ page_link }}" aria-label="{{ site.data.navigation.page.pagination_next | default: 'Next' }}">
+				<i class="fas fa-angle-right"></i>
 			</a>
 		{% else -%}
-			<span class="{{ page_link }} disabled" aria-label="Next">
-				<i aria-hidden="true">»</i>
+			<span class="{{ page_link }} disabled" aria-label="{{ site.data.navigation.page.pagination_next | default: 'Next' }}">
+				<i class="fas fa-angle-right"></i>
 			</span>
 		{%- endif -%}
 	</li>
 	<li class="page-item">
 		{%- assign last_path = site.paginate_path | replace: ":num", paginator.total_pages | relative_url -%}
 		{% if paginator.next_page -%}
-			<a href="{{ last_path }}" class="{{ page_link }}">Last</a>
+			<a href="{{ last_path }}" class="{{ page_link }}" aria-label="{{ site.data.navigation.page.pagination_last | default: 'Last' }}">
+				<i class="fa fa-angles-right" aria-hidden="true"></i>
+			</a>
 		{% else -%}
-			<span class="{{ page_link }} disabled">Last</span>
+			<span class="{{ page_link }} disabled" aria-label="{{ site.data.navigation.page.pagination_last | default: 'Last' }}">
+				<i class="fa fa-angles-right" aria-hidden="true"></i>
+			</span>
 		{%- endif -%}
 	</li>
 </ul>

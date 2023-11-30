@@ -1,5 +1,5 @@
 ---
-layout: example
+layout: single-docs
 title: 폼(form) - 버튼과 이미지 버튼
 category: testing
 ---

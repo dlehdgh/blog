@@ -1,5 +1,5 @@
 ---
-layout: example
+layout: single-docs
 title: lang 속성
 category: testing
 ---

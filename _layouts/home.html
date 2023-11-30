@@ -5,7 +5,7 @@ layout: default
 {{ content }}
 
 <article class="page-content">
-	<h2>{{ site.data.navigation.names.posts }}</h2>
+	<h2>{{ site.data.navigation.page.recent_posts }}</h2>
 	<p>{{ site.data.navigation.page.total_posts }}: <strong class="text-primary">{{ site.posts | size | default: '0' }}</strong></p>
 	{% for post in site.posts limit: 5 -%}
 		{% include postlist.html post=post %}

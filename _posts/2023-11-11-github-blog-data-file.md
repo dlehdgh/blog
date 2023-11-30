@@ -92,6 +92,7 @@ page:
   year: 연도 # 연도 아카이브의 바로가기 링크에 사용
   total_posts: 총 게시물
   more: 더보기
+  related_posts: 관련글
 ```
 {: data-label="navigation.yml"}
 

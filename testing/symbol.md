@@ -1,5 +1,5 @@
 ---
-layout: example
+layout: single-docs
 title: 기호
 category: testing
 excerpt: 

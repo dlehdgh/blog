@@ -1,5 +1,5 @@
 ---
-layout: example
+layout: single-docs
 title: figure와 표
 category: testing
 ---

@@ -13,15 +13,18 @@
 		searchInput: document.getElementById('search-input'),
 		resultsContainer: document.getElementById('results-container'),
 		json: "{{ '/search.json' | relative_url }}",
-		/* searchResultTemplate: `<li class="list-group-item">
-	<i class="fa-solid fa-file-lines fa-lg" aria-hidden="true"></i>
-	<a href="{url}">{title}</a>
-	<time>{date}</time>
-</li>`, */
 		searchResultTemplate: `<a href="{url}" class="list-group-item list-group-item-action">
-	<i class="fa-regular fa-file" aria-hidden="true"></i> {title}
+	<strong class="d-block fs-5">{title}</strong>
+	<small>
+		<i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+		<span class="visually-hidden">{{ site.data.ui-text.label.updated }}:</span>
+		<time>{date}</time>
+		<i class="fas fa-folder-open ms-2" aria-hidden="true"></i>
+		<span class="visually-hidden">{{ site.data.ui-text.navbar.categories }}:</span>
+		<span>{category}</span>
+	</small>
 </a>`,
-		noResultsText: '<li class="list-group-item">검색결과가 없습니다.</li>',
+		noResultsText: '<p class="mb-0">{{ site.data.ui-text.label.nosearch }}</p>',
 		limit: 100, // 페이지에 렌더링되는 게시물 수를 제한
 		fuzzy: false,
 		exclude: ['Welcome']

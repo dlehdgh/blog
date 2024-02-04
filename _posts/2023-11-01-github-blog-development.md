@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Github 블로그 - 1. 개발환경 구축"
-category: [blog]
+categories: [blog]
 tags: [Github, Blog, Jekyll, 개발환경]
 toc: true
 toc_sticky: true

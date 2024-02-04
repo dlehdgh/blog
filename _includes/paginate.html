@@ -1,20 +1,21 @@
 <!-- Pagination -->
+{% assign label = site.data.ui-text.label -%}
 <div class="d-flex justify-content-between">
 	<ul id="paginate" class="pagination">
 		{%- assign page_link = "page-link" -%}
 		<li class="page-item">
 			{% if include.total_page > 1 -%}
-				<button type="button" class="{{ page_link }} page-first" data-page="1" aria-label="{{ site.data.navigation.page.pagination_first | default: 'First' }}">
+				<button type="button" class="{{ page_link }} page-first" data-page="1" aria-label="{{ label.pagination_first | default: 'First' }}">
 					<i class="fa fa-angles-left" aria-hidden="true"></i>
 				</button>
 			{% else -%}
-				<span class="{{ page_link }} page-first disabled" aria-label="{{ site.data.navigation.page.pagination_first | default: 'First' }}">
+				<span class="{{ page_link }} page-first disabled" aria-label="{{ label.pagination_first | default: 'First' }}">
 					<i class="fa fa-angles-left" aria-hidden="true"></i>
 				</span>
 			{% endif -%}
 		</li>
 		<li class="page-item">
-			<button type="button" class="{{ page_link }} page-prev" aria-label="{{ site.data.navigation.page.pagination_previous | default: 'Previous' }}">
+			<button type="button" class="{{ page_link }} page-prev" aria-label="{{ label.pagination_previous | default: 'Previous' }}">
 				<i class="fas fa-angles-left" aria-hidden="true"></i>
 			</button>
 		</li>
@@ -22,17 +23,17 @@
 			<span class="{{ page_link }} disabled">Page: <span class="page-current" aria-current="page">1</span> / <span class="page-total">{{ include.total_page }}</span></span>
 		</li>
 		<li class="page-item">
-			<button type="button" class="{{ page_link }} page-next" aria-label="{{ site.data.navigation.page.pagination_next | default: 'Next' }}">
+			<button type="button" class="{{ page_link }} page-next" aria-label="{{ label.pagination_next | default: 'Next' }}">
 					<i class="fas fa-angles-right" aria-hidden="true"></i>
 			</button>
 		</li>
 		<li class="page-item">
 			{% if include.total_page > 1 -%}
-				<button type="button" class="{{ page_link }} page-last" data-page="{{ include.total_page }}" aria-label="{{ site.data.navigation.page.pagination_last | default: 'Last' }}">
+				<button type="button" class="{{ page_link }} page-last" data-page="{{ include.total_page }}" aria-label="{{ label.pagination_last | default: 'Last' }}">
 					<i class="fa fa-angles-right" aria-hidden="true"></i>
 				</button>
 			{% else -%}
-				<span class="{{ page_link }} page-last disabled" aria-label="{{ site.data.navigation.page.pagination_last | default: 'Last' }}">
+				<span class="{{ page_link }} page-last disabled" aria-label="{{ label.pagination_last | default: 'Last' }}">
 					<i class="fa fa-angles-right" aria-hidden="true"></i>
 				</span>
 			{% endif -%}

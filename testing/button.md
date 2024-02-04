@@ -2,6 +2,7 @@
 layout: single-docs
 title: 폼(form) - 버튼과 이미지 버튼
 category: testing
+date: 2018-04-29 22:17:10
 ---
 
 {%- assign img_apple = "/assets/image/apple.png" | relative_url -%}
@@ -12,8 +13,7 @@ category: testing
 <input type="button">
 <input type="button" value="전송">
 ```
-<p><input type="button"></p>
-<p><input type="button" value="전송"></p>
+{: data-preview="true"}
 
 ### Button Tag
 
@@ -21,8 +21,7 @@ category: testing
 <button type="button"></button>
 <button type="button">전송</button>
 ```
-<p><button type="button"></button></p>
-<p><button type="button">전송</button></p>
+{: data-preview="true"}
 
 ### Input Image Button
 
@@ -30,8 +29,7 @@ category: testing
 <input type="image" src="{{ img_apple }}">
 <input type="image" src="{{ img_apple }}" alt="전송">
 ```
-<p><input type="image" src="{{ img_apple }}"></p>
-<p><input type="image" src="{{ img_apple }}" alt="전송"></p>
+{: data-preview="true"}
 
 ### Image Button
 
@@ -43,12 +41,7 @@ category: testing
 	<img src="test.png" alt="전송">
 </button>
 ```
-<p><button type="button">
-	<img src="{{ img_apple }}">
-</button></p>
-<p><button type="button">
-	<img src="{{ img_apple }}" alt="전송">
-</button></p>
+{: data-preview="true"}
 
 ### Icon Button
 
@@ -57,6 +50,4 @@ category: testing
 	<i class="fas fa-star"></i>
 </button>
 ```
-<p><button type="button">
-	<i class="fas fa-star"></i>
-</button></p>
+{: data-preview="true"}

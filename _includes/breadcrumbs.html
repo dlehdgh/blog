@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
 	<ol class="breadcrumb">
 		{%- assign crumbs = page.url | split: '/' -%}
-		{% assign names = site.data.navigation.names -%}
+		{% assign names = site.data.ui-text.navbar -%}
 		<li class="breadcrumb-item">
 			<a href="{{ '/' | relative_url }}">{{ names.home | default: '홈' }}</a>
 		</li>
@@ -20,7 +20,11 @@
 				<li class="breadcrumb-item">
 					<a href="{{ site.baseurl }}{%- assign crumb_limit = forloop.index | plus: 1 -%}
 					{%- for crumb in crumbs limit: crumb_limit -%}
-						{{ crumb | append: '/' }}
+						{%- if crumb == page.categories[0] -%}
+							{{ crumb | prepend: 'categories/#' }}
+						{%- else -%}
+							{{ crumb | append: '/' }}
+						{%- endif -%}
 					{%- endfor -%}">
 						{{ names[crumb] | default: crumb | replace: '-', ' ' | remove: '.html' | capitalize }}
 					</a>

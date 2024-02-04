@@ -1,10 +1,12 @@
-<aside class="toc card mb-2 border-secondary{% if page.toc_sticky %} sticky-md-top{% endif %}">
-	<div class="card-header text-bg-secondary">{{ site.data.navigation.page.toc_title }}</div>
-	{%- comment -%}
-	* '<h'로 나누어 제목 태그를 구별
-	* 'no_toc' 클레스가 있는 제목 태그는 제외한다.
-	* 
-	{% endcomment -%}
+{%- comment -%}
+* '<h'로 나누어 제목 태그를 구별
+* 'no_toc' 클레스가 있는 제목 태그는 제외한다.
+* 첫번째 자리의 글자가 1 ~ 6인지 체크한뒤 id와 텍스트 추출
+{%- endcomment %}
+<aside class="toc card border-secondary{% if page.toc_sticky %} sticky-md-top{% endif %}">
+	<div class="card-header text-bg-secondary">
+		<i class="fas fa-server" aria-hidden="true"></i> {{ site.data.ui-text.label.toc }}
+	</div>
 	{% assign nodes = include.html | strip | split: '<h' -%}
 	{% assign minHeader = 1 -%}
 	{% assign maxHeader = 6 -%}
@@ -32,7 +34,7 @@
 			{% continue -%}
 		{% endif -%}
 		{% if currLevel > lastLevel -%}
-			<ul>
+			<ul class="list-group{% if lastLevel == 0 %} list-group-flush{% endif %}">
 		{% elsif currLevel < lastLevel -%}
 			{% assign repeatCount = lastLevel | minus: currLevel -%}
 			{% for i in (1..repeatCount) -%}
@@ -42,8 +44,8 @@
 		{% else -%}
 			</li>
 		{% endif -%}
-		<li>
-			<a href="#{{ hTagId[0] }}">{{ hTagText[1] }}</a>
+		<li class="list-group-item">
+			<a href="#{{ hTagId[0] }}" class="list-group-item-action">{{ hTagText[1] }}</a>
 		{% assign lastLevel = currLevel %}
 		{% assign firstHeader = false %}
 	{%- endfor -%}

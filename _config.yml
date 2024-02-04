@@ -27,6 +27,9 @@ baseurl: "/blog" # 사이트의 하위 경로, e.g. /blog
 url: "https://dlehdgh.github.io" # 사이트의 기본 호스트 이름 및 프로토콜, e.g. http://example.com
 permalink: /:categories/:title/ # 포스트 주소 e.g. /:categories/:year/:month/:day/:title:output_ext
 
+# 포스트 날짜가 UTC 날짜 보다 미래인 경우에도 허용
+future: true
+
 # 날짜 형식 지정(년.월.일 시:분:초 AM/PM)
 date_format: "%Y.%m.%d"
 date_time_format: "%Y.%m.%d %I:%M"
@@ -37,21 +40,25 @@ utterances:
   issue-term: pathname # 댓글 추가 시 issue의 제목 유형
   theme: github-dark-orange # 댓글 테마
 
-# twitter_username: jekyllrb
 github_username:  dlehdgh
+facebook_username: 
+twitter_username: 
 
 # Build settings
 theme: minima
 
+# 마크다운 설정
 markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
 
+# 페이지 나누기 설정
 paginate: 10
 paginate_path: "/posts/page:num/"
 paginate_size: 5
 
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-paginate

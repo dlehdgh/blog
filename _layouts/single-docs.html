@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{% include header.html meta=true %}
+
 <article class="page-content">
 	<style>
 		img, input[type="image"] {
@@ -11,7 +13,7 @@ layout: default
 	{%- if page.toc -%}
 		{% include toc.html html=content %}
 	{% endif -%}
-	{{ content }}
+	{{ content | toc }}
 </article>
 
 {% include utterances.html %}

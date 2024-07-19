@@ -205,3 +205,9 @@ $(document).ready(() => {
 });
 ```
 {: data-label="main.js"}
+
+### 테스트
+
+```python title="hello.py"
+print('hello world!')
+```
